@@ -16,8 +16,10 @@
         f: lib.genAttrs lib.systems.flakeExposed (system: f nixpkgs.legacyPackages.${system});
     in
     {
-      packages = forAllSystems (pkgs: {
+      packages = forAllSystems (pkgs: rec {
         slack-bridge = pkgs.callPackage ./slack-bridge/package.nix { };
+        client = pkgs.callPackage ./client/package.nix { };
+        default = client;
       });
 
       flakeModules.default = flake-parts.lib.importApply ./flake-module.nix { inherit self; };

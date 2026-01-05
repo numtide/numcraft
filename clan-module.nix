@@ -7,14 +7,6 @@
   roles.default = {
     interface = {
       options = {
-        whitelist = lib.mkOption {
-          type = lib.types.attrsOf lib.types.str;
-          description = "Mapping of Minecraft usernames to UUIDs. Use https://mcuuid.net/ to find UUIDs.";
-          example = {
-            "zimbatm" = "8c5dfdf0-ffa0-4379-9e46-873c882d1929";
-          };
-        };
-
         slackChannelId = lib.mkOption {
           type = lib.types.str;
           description = "Slack channel ID to bridge messages to/from";
@@ -37,99 +29,7 @@
         nixosModule =
           { config, pkgs, ... }:
           let
-            mods = [
-              (pkgs.fetchurl {
-                url = "https://cdn.modrinth.com/data/u6dRKJwZ/versions/ru8HioLg/jei-1.21.8-neoforge-24.2.0.6.jar";
-                hash = "sha256-Kp5xYAy+G/+5R7K5Sf896Z6bgYEJ7lsV5fBDFa2hmVg=";
-              })
-              (pkgs.fetchurl {
-                url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/ET1xgBsF/voicechat-neoforge-1.21.8-2.6.6.jar";
-                hash = "sha256-vSGVUip2GkaEAOaU1vEt+DMUCTslTri041oEzWGF8w8=";
-              })
-              (pkgs.fetchurl {
-                url = "https://cdn.modrinth.com/data/qQyHxfxd/versions/yi6EjUqr/NoChatReports-NEOFORGE-1.21.8-v2.15.0.jar";
-                hash = "sha256-fTTdxBTNNznAuo5t0TMHyKaVSIqeXUJSYyT+sV4/E3Y=";
-              })
-              (pkgs.fetchurl {
-                url = "https://cdn.modrinth.com/data/uCdwusMi/versions/iej5xqn2/DistantHorizons-2.3.6-b-1.21.8-fabric-neoforge.jar";
-                hash = "sha256-3vvXezWsCJzYI8dUdyw7lPCcfn2ZALvD63Ue32oVmHY=";
-              })
-              (pkgs.fetchurl {
-                url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/TSzQRFtn/lithium-neoforge-0.18.1%2Bmc1.21.8.jar";
-                hash = "sha256-1CA28BKl8HIpItI+Je1ljL30r+Xxp8ndF4zC2lvnJwM=";
-              })
-              (pkgs.fetchurl {
-                url = "https://cdn.modrinth.com/data/gu7yAYhd/versions/dBPmp0IA/cc-tweaked-1.21.8-forge-1.116.1.jar";
-                hash = "sha256-ruPrW3kHTM4kAP4c8t5YHrDWfjPnq5+O3R1bTxka60M=";
-              })
-              (pkgs.fetchurl {
-                url = "https://cdn.modrinth.com/data/uXXizFIs/versions/WmGPid1l/ferritecore-8.0.0-neoforge.jar";
-                hash = "sha256-HRKv2Ta3n4EW+mLr0lkgCGpF5mpYslVZRaXsSOrj00s=";
-              })
-              (pkgs.fetchurl {
-                url = "https://cdn.modrinth.com/data/4WWQxlQP/versions/LovZDz4w/servercore-neoforge-1.5.14%2B1.21.8.jar";
-                hash = "sha256-Iu3wCNOOfDQLOApXbC9mm0DjDk4kELZxUmYIcVm5QTs=";
-              })
-              (pkgs.fetchurl {
-                url = "https://cdn.modrinth.com/data/r0v8vy1s/versions/KnldqVfO/alternate_current-mc1.21.5-1.9.0.jar";
-                hash = "sha256-mdG1zT2Ag0PI8TdajyjdN90z+vOD0BGaaHArckMiv8c=";
-              })
-            ];
-
-            neoforgeServer = pkgs.stdenv.mkDerivation {
-              pname = "neoforge-server";
-              version = "21.8.49";
-              src = pkgs.fetchurl {
-                url = "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.8.49/neoforge-21.8.49-installer.jar";
-                hash = "sha256-ZCYIF/pyTrQo0iZeQI75RizU93grq8Paut+QT0soCJY=";
-
-                nativeBuildInputs = [
-                  pkgs.jdk
-                  pkgs.perl540Packages.strip-nondeterminism
-                ];
-                downloadToTemp = true;
-                postFetch = ''
-                  java -jar $downloadedFile --fat-offline --fat $out
-                  strip-nondeterminism -t zip $out
-                '';
-              };
-
-              phases = [
-                "buildPhase"
-                "fixupPhase"
-              ];
-
-              nativeBuildInputs = [
-                pkgs.jdk
-                pkgs.makeWrapper
-              ];
-
-              buildPhase = ''
-                java -jar $src --install-server .
-              '';
-
-              fixupPhase = ''
-                mkdir -p "$out/"{lib,bin,share}
-
-                unix_args="$({ { grep java | tr ' ' '\n' | grep libraries ; } < run.sh ; })"
-                unix_args="''${unix_args:1}"
-                unix_args="''${unix_args/"libraries/"/"$out/lib/"}"
-
-                cp -r libraries/. $out/lib/
-
-                cp -r run.sh $out/bin/minecraft-server
-                sed -i $out/bin/minecraft-server \
-                  -e 's~@user_jvm_args.txt~@'"$out"'/share/jvm_args.txt~' \
-                  -e 's~@libraries~@'"$out"'/lib~'
-                sed -i "$unix_args" \
-                  -e 's~libraries/~'"$out/lib/"'~g' \
-                  -e 's~-DlibraryDirectory=libraries~-DlibraryDirectory='"$out/lib"'~'
-                touch $out/share/jvm_args.txt
-                patchShebangs $out/bin/minecraft-server
-                wrapProgram $out/bin/minecraft-server --prefix PATH : "${pkgs.jdk}/bin"
-              '';
-            };
-
+            minecraft = import ./minecraft.nix { inherit pkgs lib; };
             slackBridgePackage = self.packages.${pkgs.stdenv.hostPlatform.system}.slack-bridge;
           in
           {
@@ -169,7 +69,9 @@
               else
                 mkdir "/var/lib/minecraft/mods"
               fi
-              ${lib.concatMapStringsSep "\n" (mod: "ln -s ${mod} /var/lib/minecraft/mods") mods}
+              ${lib.concatMapStringsSep "\n" (
+                mod: "ln -s ${mod} /var/lib/minecraft/mods"
+              ) minecraft.server.modList}
 
               # Set RCON password from secrets
               rcon_password=$(cat "${config.clan.core.vars.generators."minecraft-rcon".files."password".path}")
@@ -183,12 +85,12 @@
               enable = true;
               eula = true;
               openFirewall = true;
-              package = neoforgeServer;
+              package = minecraft.neoforgeServer;
               jvmOpts = lib.mkForce "";
 
               declarative = true;
 
-              whitelist = settings.whitelist;
+              whitelist = minecraft.whitelist;
 
               serverProperties = {
                 accepts-transfers = false;

@@ -1,0 +1,10 @@
+# Numcraft player whitelist
+#
+# To join the server, add yourself here and send a PR!
+# Find your UUID at https://mcuuid.net/
+
+[players]
+zimbatm = "8c5dfdf0-ffa0-4379-9e46-873c882d1929"
+magic_rb = "e6a68c79-e9ba-460c-8302-25f8453dbfa7"
+olinabanana = "43d2f69b-daee-46d2-b6ec-b2f5ed1a2922"
+entrix = "58e50b4d-46b8-4c72-b3c3-06d6a9aa9c4c"
