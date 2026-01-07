@@ -22,6 +22,11 @@
         default = client;
       });
 
+      overlays.default = final: prev: {
+        numcraft-client = final.callPackage ./client/package.nix { };
+        numcraft-slack-bridge = final.callPackage ./slack-bridge/package.nix { };
+      };
+
       flakeModules.default = flake-parts.lib.importApply ./flake-module.nix { inherit self; };
     };
 }
