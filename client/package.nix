@@ -71,15 +71,12 @@ let
     mkdir -p "$mods_dir"
 
     # Copy instance configuration (overwrite each time to stay in sync)
-    # Make writable since Prism Launcher needs to modify these
-    cp -f "${instanceCfg}" "$instance_dir/instance.cfg"
-    chmod +w "$instance_dir/instance.cfg"
-    cp -f "${mmcPackJson}" "$instance_dir/mmc-pack.json"
-    chmod +w "$instance_dir/mmc-pack.json"
+    # Use --no-preserve=all so files are writable (Prism Launcher needs to modify these)
+    cp -f --no-preserve=all "${instanceCfg}" "$instance_dir/instance.cfg"
+    cp -f --no-preserve=all "${mmcPackJson}" "$instance_dir/mmc-pack.json"
 
-    # Set up servers.dat (make writable for in-game edits)
-    cp -f "${serversDat}" "$minecraft_dir/servers.dat"
-    chmod +w "$minecraft_dir/servers.dat"
+    # Set up servers.dat (writable for in-game edits)
+    cp -f --no-preserve=all "${serversDat}" "$minecraft_dir/servers.dat"
 
     # Clear and set up mods directory with symlinks
     find "$mods_dir" -type l -delete 2>/dev/null || true
