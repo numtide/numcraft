@@ -106,3 +106,17 @@ version_id = "tOWZiqbL"
 filename = "xaerominimap-neoforge-1.21.8-25.3.5.jar"
 hash = "sha256-Nhk+OPhlV/YuYhNRtt7r60z/J6Bqty2pU9cepohtuL0="
 client = true
+
+[mods.mafglib]
+modrinth_id = "SKI34J7B"
+version_id = "Nm31E37k"
+filename = "mafglib-0.4.3+mc1.21.8.jar"
+hash = "sha256-OA+At4nlVgG190iCoXD3AoUGCZqRmNXMeto40OBzKaI="
+client = true
+
+[mods.forgematica]
+modrinth_id = "dCKRaeBC"
+version_id = "jVHmpNMZ"
+filename = "forgematica-0.4.2+mc1.21.8.jar"
+hash = "sha256-kxccN4CVQzWRl7yQHaHgJhadW0wg4B/ODbehR7VXDYc="
+client = true
