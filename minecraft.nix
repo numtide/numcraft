@@ -23,7 +23,7 @@ let
 
       nativeBuildInputs = [
         pkgs.jdk
-        pkgs.perl540Packages.strip-nondeterminism
+        pkgs.perl5Packages.strip-nondeterminism
       ];
       downloadToTemp = true;
       postFetch = ''
