@@ -1,8 +1,8 @@
 # Minecraft configuration loaded from minecraft.toml and whitelist.toml
 { pkgs, lib }:
 let
-  data = builtins.fromTOML (builtins.readFile ./minecraft.toml);
-  whitelistData = builtins.fromTOML (builtins.readFile ./whitelist.toml);
+  data = lib.importTOML ./minecraft.toml;
+  whitelistData = lib.importTOML ./whitelist.toml;
 
   fetchMod =
     _name: info:
@@ -83,11 +83,11 @@ in
 
   server = {
     mods = serverMods;
-    modList = builtins.attrValues serverMods;
+    modList = lib.attrValues serverMods;
   };
 
   client = {
     mods = clientMods;
-    modList = builtins.attrValues clientMods;
+    modList = lib.attrValues clientMods;
   };
 }

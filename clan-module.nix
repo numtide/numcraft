@@ -174,7 +174,7 @@
                 SLACK_APP_TOKEN_FILE = "%d/slack-app-token";
                 RCON_PASSWORD_FILE = "%d/rcon-password";
                 SLACK_CHANNEL_ID = settings.slackChannelId;
-                USER_MAPPING_FILE = pkgs.writeText "user-mapping.json" (builtins.toJSON settings.slackUserMapping);
+                USER_MAPPING_FILE = pkgs.writers.writeJSON "user-mapping.json" settings.slackUserMapping;
                 RCON_HOST = "127.0.0.1";
                 RCON_PORT = "25575";
                 MINECRAFT_LOG_PATH = "/var/lib/minecraft/logs/latest.log";

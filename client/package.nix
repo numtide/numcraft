@@ -38,7 +38,7 @@ let
 
   # MMC pack configuration
   mmcPackJson = pkgs.writeText "mmc-pack.json" (
-    builtins.toJSON {
+    lib.toJSON {
       formatVersion = 1;
       components = [
         {
@@ -85,7 +85,7 @@ let
     '') minecraft.client.modList}
 
     echo "Numcraft instance configured at: $instance_dir"
-    echo "Mods installed: ${toString (builtins.length minecraft.client.modList)}"
+    echo "Mods installed: ${toString (lib.length minecraft.client.modList)}"
     echo ""
     echo "Launching Prism Launcher..."
 
