@@ -20,6 +20,9 @@ modrinth_id = "gu7yAYhd"
 version_id = "dBPmp0IA"
 filename = "cc-tweaked-1.21.8-forge-1.116.1.jar"
 hash = "sha256-ruPrW3kHTM4kAP4c8t5YHrDWfjPnq5+O3R1bTxka60M="
+sha1 = "cd7e3f63954dab40bd2e78dd5fa44c07473d5fe0"
+sha512 = "db1918dbed38f69677f02335be3579a11711e865a63140a9bab6e4a28c9f0f1e23ca183fe1b392dc91e18bd23998c3fb7f3ea8db7afb33e2a7c59584f6d94f61"
+file_size = 3144038
 server = true
 client = true
 
@@ -28,6 +31,9 @@ modrinth_id = "u6dRKJwZ"
 version_id = "ru8HioLg"
 filename = "jei-1.21.8-neoforge-24.2.0.6.jar"
 hash = "sha256-Kp5xYAy+G/+5R7K5Sf896Z6bgYEJ7lsV5fBDFa2hmVg="
+sha1 = "feb011ffcba383ceee9cef2518d8ba45dffbf232"
+sha512 = "3faef979df3155d583ffd2453cfa8ebf0ced7fd66e28eb0e1156895791ce841ca71d318aa9b50ff0024f38ec77dc6bf8c2361fd2abcfb55fcb69f8d91ea694a3"
+file_size = 1459422
 server = true
 client = true
 
@@ -36,6 +42,9 @@ modrinth_id = "gvQqBUqZ"
 version_id = "TSzQRFtn"
 filename = "lithium-neoforge-0.18.1+mc1.21.8.jar"
 hash = "sha256-1CA28BKl8HIpItI+Je1ljL30r+Xxp8ndF4zC2lvnJwM="
+sha1 = "b8e673bd3d6c6b00accac53a14fdce37b266849e"
+sha512 = "14705ca1b21fdb94cffae318836f4b48c5f975e6c9acc7fcfae9349cd9587906761d7d76b1f9a10503b2011dc9997f1b9d79de095bca0e125a8a9e2504a07ac9"
+file_size = 816322
 server = true
 client = true
 
@@ -44,6 +53,9 @@ modrinth_id = "9eGKb6K1"
 version_id = "ET1xgBsF"
 filename = "voicechat-neoforge-1.21.8-2.6.6.jar"
 hash = "sha256-vSGVUip2GkaEAOaU1vEt+DMUCTslTri041oEzWGF8w8="
+sha1 = "3c9047096422d6c95e6237e18a6560ca5f0f68dc"
+sha512 = "df82d50cb5d57e3f1b53826aea88c5181e9f2cf98936d4a33f432a8e1581985ffe47a12db57c5eb41308ce86bed31cfd739788da62affaa5488fec3d5853bcc2"
+file_size = 4869707
 server = true
 client = true
 
@@ -54,6 +66,9 @@ modrinth_id = "qQyHxfxd"
 version_id = "yi6EjUqr"
 filename = "NoChatReports-NEOFORGE-1.21.8-v2.15.0.jar"
 hash = "sha256-fTTdxBTNNznAuo5t0TMHyKaVSIqeXUJSYyT+sV4/E3Y="
+sha1 = "555ecf92555820926cc2c847f20e4be0fca945fc"
+sha512 = "9bd1694f5546f37122278b4d1dcfab8ecddb6a864b32a88402e44e17a28f1b97d292a89358830f1bf02ff624a4784838b20216d3a6c9e042f8a72ddd459438b6"
+file_size = 247030
 server = true
 
 [mods.distant-horizons]
@@ -61,6 +76,9 @@ modrinth_id = "uCdwusMi"
 version_id = "iej5xqn2"
 filename = "DistantHorizons-2.3.6-b-1.21.8-fabric-neoforge.jar"
 hash = "sha256-3vvXezWsCJzYI8dUdyw7lPCcfn2ZALvD63Ue32oVmHY="
+sha1 = "f3694b8d7c8507a39bf62ee7986e1c3ebcf0d157"
+sha512 = "56c7cc29bc57075252573220ceab01fc1a4697cc6361ec42f96cbfb418c87b19bcce73e252a47d7dde08e126c56d0df99788964843593c3f88fd8c8938e7f28f"
+file_size = 25516728
 server = true
 
 [mods.ferritecore]
@@ -68,6 +86,9 @@ modrinth_id = "uXXizFIs"
 version_id = "WmGPid1l"
 filename = "ferritecore-8.0.0-neoforge.jar"
 hash = "sha256-HRKv2Ta3n4EW+mLr0lkgCGpF5mpYslVZRaXsSOrj00s="
+sha1 = "c966accc11438c2597c0aa5ca21f19a271caaaa1"
+sha512 = "cb9e7b96fdd02cc62883237a1ece3068e7be35267d00626fc27c84992e23b4047911d8a67deafb078bd1815634c221a6965c0c63953be720ff95987bdd0410a1"
+file_size = 78885
 server = true
 
 [mods.servercore]
@@ -75,6 +96,9 @@ modrinth_id = "4WWQxlQP"
 version_id = "LovZDz4w"
 filename = "servercore-neoforge-1.5.14+1.21.8.jar"
 hash = "sha256-Iu3wCNOOfDQLOApXbC9mm0DjDk4kELZxUmYIcVm5QTs="
+sha1 = "d0c3a16ee2a7ac08c1a4b47f7b9f04254b6707b0"
+sha512 = "1700a982fd83bddb1d50ea20b6bd56512da521a69f0e45767be58faaa27fadd312c1efa11e3d44487dc3d3f49f231727dd4eedc1781d53326db025f9f287ed48"
+file_size = 1492093
 server = true
 
 [mods.alternate-current]
@@ -82,6 +106,9 @@ modrinth_id = "r0v8vy1s"
 version_id = "KnldqVfO"
 filename = "alternate_current-mc1.21.5-1.9.0.jar"
 hash = "sha256-mdG1zT2Ag0PI8TdajyjdN90z+vOD0BGaaHArckMiv8c="
+sha1 = "159be56f77d5e35b64d20f182a5c402e4ff79219"
+sha512 = "14090bfc92a41a8c9fcf0d4e224ee46ed5de4fcb699fca9d580d3432002726d21011689ead1b0af954fc2f07f37dbedb42a4fa49e5ca6ef932e420153459753d"
+file_size = 51737
 server = true
 
 # Client-only mods
@@ -91,6 +118,9 @@ modrinth_id = "aC3cM3Vq"
 version_id = "bjlKDjG5"
 filename = "MouseTweaks-neoforge-mc1.21.6-2.28.jar"
 hash = "sha256-3Bnzns6d1q5PLpaegma364CScR70AAjlt+tZZcsG1Pc="
+sha1 = "c4d57d318387b608ef5230a03a6c632157438df3"
+sha512 = "d0e0272d22bbc01b510e497c1d57f32f91bb519aa6fc11f1e02f85419f098e858fae484ff792e73ca87b474ad85cc1623d2e96fcdf1fef29fcc3e3159c3657a6"
+file_size = 73950
 client = true
 
 [mods.sodium]
@@ -98,6 +128,9 @@ modrinth_id = "AANobbMI"
 version_id = "q6wdZywr"
 filename = "sodium-neoforge-0.7.3+mc1.21.8.jar"
 hash = "sha256-6AQyuem65/AbvR40Uzwp0+SSHQ4empKcOfYmxHci+u4="
+sha1 = "78965ea5d95706068628cda48997debcb599a98a"
+sha512 = "048f596ef247a71335905a77f71e696ae0013f7905ec5cecdce06bf5ad609f9b69a6ef318e05ac9a91d47733aac77bffca7c66a324638e588897f5017fa93ef2"
+file_size = 1254511
 client = true
 
 [mods.xaeros-minimap]
@@ -105,6 +138,9 @@ modrinth_id = "1bokaNcj"
 version_id = "tOWZiqbL"
 filename = "xaerominimap-neoforge-1.21.8-25.3.5.jar"
 hash = "sha256-Nhk+OPhlV/YuYhNRtt7r60z/J6Bqty2pU9cepohtuL0="
+sha1 = "d482c7d8d3e4c6b910e19858feefc6748be112e3"
+sha512 = "7c522b78553337cad194dde5fcf1afc17578b2b42c12dbdeda5438002f8e66db873df3b3f60b2816b619fc22cb5568ff02d46d630cd99bc80f3001d2c5ecc68e"
+file_size = 2087838
 client = true
 
 [mods.mafglib]
@@ -112,6 +148,9 @@ modrinth_id = "SKI34J7B"
 version_id = "Nm31E37k"
 filename = "mafglib-0.4.3+mc1.21.8.jar"
 hash = "sha256-OA+At4nlVgG190iCoXD3AoUGCZqRmNXMeto40OBzKaI="
+sha1 = "d43854464e902ff61f0756d672b57d5e87d1797b"
+sha512 = "081fe6fd1ff04d8531f1145d5222a65ad1e562a6239bc7d935dd56b0786c4c3dcf24c85dd794c461e754d0432f66cc1f87e44ff6209691db4d46b57bae9934f5"
+file_size = 1291316
 client = true
 
 [mods.forgematica]
@@ -119,4 +158,7 @@ modrinth_id = "dCKRaeBC"
 version_id = "jVHmpNMZ"
 filename = "forgematica-0.4.2+mc1.21.8.jar"
 hash = "sha256-kxccN4CVQzWRl7yQHaHgJhadW0wg4B/ODbehR7VXDYc="
+sha1 = "1b2488f8de2592b57d21f7f77f7bd9178addbfd7"
+sha512 = "12ea9e1dc72645c2aad2ba10f1d7a9f128f7ed86436c654f8c1a5ed36a5e5ad6b4638d4de7d3681be406ddf0b060dd7b3db494a34009f9d04cc1b32012a0c6bf"
+file_size = 1540154
 client = true

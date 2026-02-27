@@ -19,6 +19,7 @@
       packages = forAllSystems (pkgs: rec {
         slack-bridge = pkgs.callPackage ./slack-bridge/package.nix { };
         client = pkgs.callPackage ./client/package.nix { };
+        mrpack = pkgs.callPackage ./mrpack/package.nix { };
         default = client;
       });
 

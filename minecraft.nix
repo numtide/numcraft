@@ -70,9 +70,32 @@ let
 
   serverMods = filterMods (info: info.server or false);
   clientMods = filterMods (info: info.client or false);
+
+  serversDat =
+    pkgs.runCommand "servers-dat"
+      {
+        nativeBuildInputs = [ (pkgs.python3.withPackages (ps: [ ps.nbtlib ])) ];
+      }
+      ''
+        python3 << 'EOF'
+        import os
+        from nbtlib import File, Compound, List, String, Byte
+
+        servers = File(gzipped=False)
+        servers["servers"] = List[Compound]([
+            Compound({
+                "name": String("${data.server.name}"),
+                "ip": String("${data.server.address}"),
+                "acceptTextures": Byte(1),
+            })
+        ])
+
+        servers.save(os.environ["out"])
+        EOF
+      '';
 in
 {
-  inherit neoforgeServer;
+  inherit neoforgeServer serversDat;
 
   minecraftVersion = data.neoforge.minecraft_version;
   neoforgeVersion = data.neoforge.version;
