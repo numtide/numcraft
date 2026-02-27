@@ -48,6 +48,7 @@ pkgs.runCommand "numcraft.mrpack"
   ''
     mkdir -p staging/overrides
     cp "$indexPath" staging/modrinth.index.json
+    cp ${../icon.png} staging/icon.png
     cp ${serversDat} staging/overrides/servers.dat
     (cd staging && zip -r "$out" .)
   ''

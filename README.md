@@ -1,5 +1,7 @@
 # Numcraft
 
+![Numcraft](icon.png)
+
 The Numtide Minecraft server. Yes, this is serious :)
 
 It's a place for meetings (with the voice plugin). It's a place to code with ComputerCraft. And we're also toying with the deployment of Minecraft itself.
@@ -11,7 +13,6 @@ Deployed at `arcade1.m.ntd.one`.
 Requirements:
 
 - A Minecraft Java Edition license. Get it on <https://minecraft.net>.
-- A machine with Nix installed.
 - Add yourself to the whitelist (so we don't deal with griefers).
 
 ### Join the Whitelist
