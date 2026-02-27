@@ -3,12 +3,15 @@
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   inputs.flake-parts.url = "github:hercules-ci/flake-parts";
+  inputs.clan-core.url = "git+https://git.clan.lol/clan/clan-core";
+  inputs.clan-core.inputs.nixpkgs.follows = "nixpkgs";
 
   outputs =
     {
       self,
       nixpkgs,
       flake-parts,
+      clan-core,
     }:
     let
       inherit (nixpkgs) lib;
@@ -27,6 +30,19 @@
         numcraft-client = final.callPackage ./client/package.nix { };
         numcraft-slack-bridge = final.callPackage ./slack-bridge/package.nix { };
       };
+
+      checks = lib.genAttrs [ "x86_64-linux" "aarch64-linux" ] (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          nixosLib = import (nixpkgs + "/nixos/lib") { };
+        in
+        lib.optionalAttrs pkgs.stdenv.isLinux {
+          server-start = import ./checks/server-start {
+            inherit pkgs nixosLib clan-core self;
+          };
+        }
+      );
 
       flakeModules.default = flake-parts.lib.importApply ./flake-module.nix { inherit self; };
     };
