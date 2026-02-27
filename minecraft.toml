@@ -162,3 +162,13 @@ sha1 = "1b2488f8de2592b57d21f7f77f7bd9178addbfd7"
 sha512 = "12ea9e1dc72645c2aad2ba10f1d7a9f128f7ed86436c654f8c1a5ed36a5e5ad6b4638d4de7d3681be406ddf0b060dd7b3db494a34009f9d04cc1b32012a0c6bf"
 file_size = 1540154
 client = true
+
+[mods.nemos-inventory-sorting]
+modrinth_id = "JHgf35QL"
+version_id = "PYyQU76o"
+filename = "nemos-inventory-sorting-NeoForge-1.21.8-1.14.4.jar"
+hash = "sha256-HI72bfdZ2pSQkvHfI53oekhqCoIBTEpDIm71kFKyLqM="
+sha1 = "6a1821ce7e8cda5b95a242234c4c0e8e158d0c10"
+sha512 = "11b594eeb93f9c4788bae6a87955c091e90a859676cd431ba6d8d70c2e428aa2e683e913f661248c2dff2fe740232937a234105e16b12ba8d5ef9cdd1a8bfa5c"
+file_size = 135492
+client = true
