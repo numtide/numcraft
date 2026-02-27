@@ -73,6 +73,9 @@
                 mod: "ln -s ${mod} /var/lib/minecraft/mods"
               ) minecraft.server.modList}
 
+              # Server icon (resized to 64x64)
+              ${pkgs.imagemagick}/bin/convert ${./icon.png} -resize 64x64 /var/lib/minecraft/server-icon.png
+
               # Set RCON password from secrets
               rcon_password=$(cat "${config.clan.core.vars.generators."minecraft-rcon".files."password".path}")
               ${pkgs.gnused}/bin/sed -i "s|^rcon.password=.*|rcon.password=$rcon_password|" /var/lib/minecraft/server.properties
