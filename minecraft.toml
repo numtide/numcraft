@@ -248,6 +248,16 @@ sha512 = "12ea9e1dc72645c2aad2ba10f1d7a9f128f7ed86436c654f8c1a5ed36a5e5ad6b4638d
 file_size = 1540154
 client = true
 
+[mods.xaeros-world-map]
+modrinth_id = "NcUtCpym"
+version_id = "tbX9IQ0A"
+filename = "xaeroworldmap-neoforge-1.21.8-1.40.11.jar"
+hash = "sha256-cheHMgYdkHGMUPU0leyqxjf/kO8NDhNuU1Jfp0bJxT0="
+sha1 = "0b3cff7ead20b0336f2fffe8a7505b6543e6caaa"
+sha512 = "6b43fa4611f44b88c2169a73266be5c8a6ec2e72a7cb89d866f9825d0a82b6331871e73c1771d7e0639d6ed0ffcca9731fa8b133e52afd7f5ebddb90dbfb3947"
+file_size = 1402523
+client = true
+
 [mods.nemos-inventory-sorting]
 modrinth_id = "JHgf35QL"
 version_id = "PYyQU76o"
