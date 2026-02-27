@@ -3,7 +3,7 @@
 let
   minecraft = import ../minecraft.nix { inherit pkgs lib; };
 
-  inherit (minecraft) serversDat;
+  inherit (minecraft) serversDat serverAddress;
 
   # Instance configuration for Prism Launcher
   instanceCfg = pkgs.writeText "instance.cfg" ''
@@ -12,6 +12,8 @@ let
     iconKey=default
     name=Numcraft
     InstanceType=OneSix
+    JoinServerOnLaunch=true
+    JoinServerOnLaunchAddress=${serverAddress}
   '';
 
   # MMC pack configuration
