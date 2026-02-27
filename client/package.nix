@@ -3,29 +3,7 @@
 let
   minecraft = import ../minecraft.nix { inherit pkgs lib; };
 
-  # Generate servers.dat NBT file using Python
-  serversDat =
-    pkgs.runCommand "servers-dat"
-      {
-        nativeBuildInputs = [ (pkgs.python3.withPackages (ps: [ ps.nbtlib ])) ];
-      }
-      ''
-        python3 << EOF
-        import os
-        from nbtlib import File, Compound, List, String, Byte
-
-        servers = File(gzipped=False)
-        servers["servers"] = List[Compound]([
-            Compound({
-                "name": String("${minecraft.serverName}"),
-                "ip": String("${minecraft.serverAddress}"),
-                "acceptTextures": Byte(1),
-            })
-        ])
-
-        servers.save(os.environ["out"])
-        EOF
-      '';
+  inherit (minecraft) serversDat;
 
   # Instance configuration for Prism Launcher
   instanceCfg = pkgs.writeText "instance.cfg" ''
@@ -38,7 +16,7 @@ let
 
   # MMC pack configuration
   mmcPackJson = pkgs.writeText "mmc-pack.json" (
-    lib.toJSON {
+    builtins.toJSON {
       formatVersion = 1;
       components = [
         {
