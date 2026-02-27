@@ -1,0 +1,33 @@
+name: Publish mrpack
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_config: |
+            extra-substituters = https://cache.numtide.com
+            extra-trusted-public-keys = niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=
+
+      - name: Build mrpack
+        run: nix build .#mrpack --log-format bar-with-logs
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Latest modpack
+          body: |
+            Download `numcraft.mrpack` and import it into PrismLauncher.
+          files: result
+          make_latest: true
