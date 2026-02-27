@@ -59,6 +59,50 @@ file_size = 4869707
 server = true
 client = true
 
+[mods.appleskin]
+modrinth_id = "EsAfCjCV"
+version_id = "zu0t9UzU"
+filename = "appleskin-neoforge-mc1.21.6-3.0.8.jar"
+hash = "sha256-wSP82IhQRXApTmydAnWobRZsMjbtbiq8wLiuvmeNFyI="
+sha1 = "06f6d3002337fc07b9c541e71d6c622d195d4f21"
+sha512 = "6c5d43b47698058b61cf6b7de30c244f1d53157c745e8115836ac363c6fc1df93072ea788d0dec376e9478646655b48c51f7426d8bbeef596a6f393917c64e1d"
+file_size = 79673
+server = true
+client = true
+
+[mods.jade]
+modrinth_id = "nvQzSEkH"
+version_id = "V5Hbf49Y"
+filename = "Jade-1.21.8-NeoForge-19.3.1.jar"
+hash = "sha256-aekd9aXtuDQPXODaNQBXCF+qwSC5d066nK9X5lhY0Lc="
+sha1 = "4bc6ebf93b2a741c960744ca36f66fa16ecd03c8"
+sha512 = "f9e6772a1b7fa8a040f7ddace402d12cd0f109bd4a37a38a95bdc972020d5d37df6735d0204bcedb7133c008f1ac19b45d8e7a40908b4d3f86d54ac05b596bc1"
+file_size = 891360
+server = true
+client = true
+
+[mods.modernfix]
+modrinth_id = "TjSm1wrD"
+version_id = "UNhbjZTv"
+filename = "modernfix-neoforge-5.20.4-1.21.8.jar"
+hash = "sha256-l+yK/m1AzVjvVvWw0oBrstpFvBqNHlVS6Ae4Dmzg9Nk="
+sha1 = "342494dd15a45c394a2f1ae4d1ca5897e8f3d73f"
+sha512 = "af75f6434bbdf4c6fc85fa9bd22b76af3d6114c5bf3541ae68f0095009d8df507453409733de9f89837c57381a1adc0884b6c4fd66ed15bcdf7bf20107fb20e0"
+file_size = 470698
+server = true
+client = true
+
+[mods.spark]
+modrinth_id = "l6YH9Als"
+version_id = "7ryRNKVI"
+filename = "spark-1.10.142-neoforge.jar"
+hash = "sha256-kCnNHB3UMaHnxicIlGQo+ePMM8buzgbrysJP/6dsngk="
+sha1 = "a120ef989c1a462837f5dbf3c368bafb5b609c3b"
+sha512 = "7dc9666f37281fc2afbd4b131ef20adf4edc6e633587c4f95ef342b55b3ed7ef73cb70deef1114a574b9ef1a99001d3b99e9acf4f145e495031b2239621d57d9"
+file_size = 3834500
+server = true
+client = true
+
 # Server-only mods
 
 [mods.no-chat-reports]
@@ -90,6 +134,7 @@ sha1 = "c966accc11438c2597c0aa5ca21f19a271caaaa1"
 sha512 = "cb9e7b96fdd02cc62883237a1ece3068e7be35267d00626fc27c84992e23b4047911d8a67deafb078bd1815634c221a6965c0c63953be720ff95987bdd0410a1"
 file_size = 78885
 server = true
+client = true
 
 [mods.servercore]
 modrinth_id = "4WWQxlQP"
@@ -111,7 +156,47 @@ sha512 = "14090bfc92a41a8c9fcf0d4e224ee46ed5de4fcb699fca9d580d3432002726d2101168
 file_size = 51737
 server = true
 
+[mods.chunky]
+modrinth_id = "fALzjamp"
+version_id = "LqL1fnq0"
+filename = "Chunky-NeoForge-1.4.40.jar"
+hash = "sha256-rLxygXUS3cNQu3m/AiyAKZJZTqymq1r+5E8uj2Onah0="
+sha1 = "d8ec63e998f335caab0f802c4b180b1a12d7a8b8"
+sha512 = "493bbf676b93559e8a5745d1a02a0e15bd38f9dc6085fc48a7c04a088a3b167bc0b77ce2ad0d8ecdb028e67c5875207cbf43d898aefbfd2479b3eb0944dcea97"
+file_size = 346000
+server = true
+
 # Client-only mods
+
+[mods.entityculling]
+modrinth_id = "NNAgCjsB"
+version_id = "OmOYDnya"
+filename = "entityculling-neoforge-1.9.5-mc1.21.8.jar"
+hash = "sha256-maKTUfci2kQAzBWCbl7ezje+MqvHWNmFRHJuwL64/VY="
+sha1 = "9139a0e2f3edd3380cab21ba1961ac942ba0bcec"
+sha512 = "3bbf8fadc63273dfe2e33aef7c4dc97e1693e1fb2d90a2766fcf4aa3d842dc75db94b87e197a21aa82acf0c542e59c3386d076c64d2068f6b5e86b0aa9bf9ad6"
+file_size = 1567349
+client = true
+
+[mods.searchables]
+modrinth_id = "fuuu3xnx"
+version_id = "SYIqnLip"
+filename = "Searchables-neoforge-1.21.8-1.0.2.jar"
+hash = "sha256-syPM2Pa5opwqVqDwVQZiVlF/00m8tIzN2HSrjFplxsI="
+sha1 = "fa6ed5b307f2dc8d4872e80700bf4cff5895cf5f"
+sha512 = "9bd3eb279e61dd4abd56c55dca388f99a3c8ed39c212e925390eeda8c702d581b60b0bda56a00888ab03934543b1db7269303a1febb22e00011803497a8daf76"
+file_size = 77669
+client = true
+
+[mods.controlling]
+modrinth_id = "xv94TkTM"
+version_id = "ihQqMaN8"
+filename = "Controlling-neoforge-1.21.8-26.0.3.jar"
+hash = "sha256-UPx+samhhfrA4kIJvbA3k733JxIAofs/5dZzEGrDHLg="
+sha1 = "938ce054d0bf09f30c599e58946e58167b3790ce"
+sha512 = "4941ef5360a8998c2c08392371413177dde7936193e011758a80375b25aacd4fb59fce18378a4c90a37bd81ed5ad250457a43d6b4e32d94c2f141211f252f72e"
+file_size = 78715
+client = true
 
 [mods.mouse-tweaks]
 modrinth_id = "aC3cM3Vq"
@@ -145,12 +230,12 @@ client = true
 
 [mods.mafglib]
 modrinth_id = "SKI34J7B"
-version_id = "Nm31E37k"
-filename = "mafglib-0.4.3+mc1.21.8.jar"
-hash = "sha256-OA+At4nlVgG190iCoXD3AoUGCZqRmNXMeto40OBzKaI="
-sha1 = "d43854464e902ff61f0756d672b57d5e87d1797b"
-sha512 = "081fe6fd1ff04d8531f1145d5222a65ad1e562a6239bc7d935dd56b0786c4c3dcf24c85dd794c461e754d0432f66cc1f87e44ff6209691db4d46b57bae9934f5"
-file_size = 1291316
+version_id = "4E6KWMAH"
+filename = "mafglib-0.4.5+mc1.21.8.jar"
+hash = "sha256-tdaq0vnQ8CvMmCLUEdeRg2hjyf5nKQDnyqIgXpxVXCE="
+sha1 = "10b99f02b73e3e121288cda16891f15e5aaad044"
+sha512 = "5fe363919a87e36d834713dfbfbbdf852826cf5ba39b8be4405f61f203af62cbf3f50d8c91f21dc7f3d1a714f2e81f94671a291c61d961c06dcf3b8f3199fd71"
+file_size = 1470305
 client = true
 
 [mods.forgematica]
