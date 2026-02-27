@@ -28,7 +28,7 @@ Requirements:
 ### With Nix
 
 ```bash
-nix run
+nix run github:numtide/numcraft
 ```
 
 This launches Prism Launcher with a pre-configured Numcraft instance, with all the mods and server address pre-configured.
@@ -38,6 +38,6 @@ On first run, log in to Microsoft and the instance will be ready to play.
 ### Without Nix
 
 1. Install [PrismLauncher](https://prismlauncher.org/).
-2. Download `numcraft.mrpack` from the [latest release](https://github.com/numtide/numcraft/releases/latest).
+2. Download [`numcraft.mrpack`](https://github.com/numtide/numcraft/releases/download/latest/numcraft.mrpack).
 3. In PrismLauncher, click **Add Instance** > **Import** and select the downloaded file.
 4. Log in to Microsoft and launch the instance.
