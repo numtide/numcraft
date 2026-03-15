@@ -1,4 +1,4 @@
-{ self }:
+{ self, drasl }:
 { lib, ... }:
 {
   _class = "clan.service";
@@ -31,8 +31,11 @@
           let
             minecraft = import ./minecraft.nix { inherit pkgs lib; };
             slackBridgePackage = self.packages.${pkgs.stdenv.hostPlatform.system}.slack-bridge;
+            draslDomain = "drasl.ntd.one";
+            draslURL = "https://${draslDomain}";
           in
           {
+            imports = [ drasl.nixosModules.drasl ];
             # RCON password management (used by the Slack bridge)
             clan.core.vars.generators."minecraft-rcon" = {
               files."password".owner = "minecraft";
@@ -42,6 +45,16 @@
               script = ''
                 pwgen -s 32 1 > "$out/password"
               '';
+            };
+
+            # Drasl OIDC secret (from terraform output -json oidc_clients)
+            clan.core.vars.generators."drasl-oidc" = {
+              files."oidc-client-secret" = { };
+              prompts."oidc-client-secret" = {
+                description = "Drasl OIDC client secret (from terraform output -json oidc_clients)";
+                persist = true;
+                type = "hidden";
+              };
             };
 
             # Slack bridge secrets
@@ -89,11 +102,18 @@
               eula = true;
               openFirewall = true;
               package = minecraft.neoforgeServer;
-              jvmOpts = lib.mkForce "";
+              jvmOpts = lib.mkForce (
+                lib.concatStringsSep " " [
+                  "-Dminecraft.api.env=custom"
+                  "-Dminecraft.api.auth.host=${draslURL}/auth"
+                  "-Dminecraft.api.account.host=${draslURL}/account"
+                  "-Dminecraft.api.profiles.host=${draslURL}/account"
+                  "-Dminecraft.api.session.host=${draslURL}/session"
+                  "-Dminecraft.api.services.host=${draslURL}/services"
+                ]
+              );
 
               declarative = true;
-
-              whitelist = minecraft.whitelist;
 
               serverProperties = {
                 accepts-transfers = false;
@@ -108,7 +128,7 @@
                 enable-query = false;
                 enable-rcon = true;
                 enable-status = true;
-                enforce-secure-profile = true;
+                enforce-secure-profile = false;
                 enforce-whitelist = false;
                 entity-broadcast-range-percentage = 100;
                 force-gamemode = false;
@@ -156,7 +176,7 @@
                 text-filtering-version = 0;
                 use-native-transport = true;
                 view-distance = 10;
-                white-list = true;
+                white-list = false;
               };
             };
 
@@ -203,6 +223,73 @@
                 Restart = "always";
                 RestartSec = "10s";
               };
+            };
+
+            # Drasl - self-hosted Yggdrasil API server for SSO login
+            services.drasl = {
+              enable = true;
+              settings = {
+                Domain = draslDomain;
+                BaseURL = draslURL;
+                ListenAddress = "127.0.0.1:25585";
+
+                # Players must own a Minecraft license. They register on Drasl
+                # via OIDC and link their existing Mojang account.
+                RegistrationNewPlayer.Allow = true;
+                RegistrationNewPlayer.RequireInvite = true;
+                RegistrationExistingPlayer = {
+                  Allow = true;
+                  RequireInvite = false;
+                  Nickname = "Mojang";
+                  SessionURL = "https://sessionserver.mojang.com";
+                  AccountURL = "https://api.mojang.com";
+                  SetSkinURL = "https://api.minecraftservices.com/minecraft/profile/skins";
+                  RequireSkinVerification = false;
+                };
+
+                ForwardSkins = true;
+
+                # Fallback to Mojang for players who authenticate directly
+                FallbackAPIServers = [
+                  {
+                    Nickname = "Mojang";
+                    SessionURL = "https://sessionserver.mojang.com";
+                    AccountURL = "https://api.mojang.com";
+                    ServicesURL = "https://api.minecraftservices.com";
+                    SkinDomains = [
+                      "textures.minecraft.net"
+                    ];
+                  }
+                ];
+
+                # Keycloak OIDC provider
+                RegistrationOIDC = [
+                  {
+                    Name = "Numtide";
+                    Issuer = "https://auth.numtide.com/realms/numtide-internal";
+                    ClientID = "drasl";
+                    ClientSecretFile = "/run/credentials/drasl.service/oidc-client-secret";
+                    AllowChoosingPlayerName = true;
+                  }
+                ];
+              };
+            };
+
+            systemd.services.drasl = {
+              after = [ "network-online.target" ];
+              wants = [ "network-online.target" ];
+              serviceConfig.LoadCredential = [
+                "oidc-client-secret:${
+                  config.clan.core.vars.generators."drasl-oidc".files."oidc-client-secret".path
+                }"
+              ];
+            };
+
+            # Nginx reverse proxy for Drasl
+            services.nginx.virtualHosts.${draslDomain} = {
+              forceSSL = true;
+              enableACME = true;
+              locations."/".proxyPass = "http://127.0.0.1:25585";
             };
           };
       };

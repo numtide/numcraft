@@ -76,6 +76,47 @@
         "type": "github"
       }
     },
+    "drasl": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773533068,
+        "narHash": "sha256-1nI+fv9Unr5Q3lPeJvxecK+PEgjmC2XIzXiFeOrx3vU=",
+        "owner": "unmojang",
+        "repo": "drasl",
+        "rev": "70541a491f20d5c35fad24154712825f53c77eb6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "unmojang",
+        "repo": "drasl",
+        "type": "github"
+      }
+    },
+    "fjordlauncher": {
+      "inputs": {
+        "libnbtplusplus": "libnbtplusplus",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1771970824,
+        "narHash": "sha256-SeFfi7BW/3u8J1MO4EJjN5QwyI1O6WpuvHpvRr1dMGw=",
+        "owner": "unmojang",
+        "repo": "FjordLauncher",
+        "rev": "25a1191c4e81fd46c3ea6c13c565201fc8b2dacb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "unmojang",
+        "repo": "FjordLauncher",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -112,6 +153,22 @@
       "original": {
         "owner": "hercules-ci",
         "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "libnbtplusplus": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744811532,
+        "narHash": "sha256-qhmjaRkt+O7A+gu6HjUkl7QzOEb4r8y8vWZMG2R/C6o=",
+        "owner": "PrismLauncher",
+        "repo": "libnbtplusplus",
+        "rev": "531449ba1c930c98e0bcf5d332b237a8566f9d78",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PrismLauncher",
+        "repo": "libnbtplusplus",
         "type": "github"
       }
     },
@@ -183,6 +240,8 @@
     "root": {
       "inputs": {
         "clan-core": "clan-core",
+        "drasl": "drasl",
+        "fjordlauncher": "fjordlauncher",
         "flake-parts": "flake-parts_2",
         "nixpkgs": "nixpkgs"
       }

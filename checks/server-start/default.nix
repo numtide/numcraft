@@ -4,6 +4,7 @@
   nixosLib,
   clan-core,
   self,
+  drasl,
 }:
 nixosLib.runTest (
   { ... }:
@@ -20,7 +21,7 @@ nixosLib.runTest (
       directory = ./.;
       test.useContainers = false;
 
-      modules."@numtide/numcraft" = import ../../clan-module.nix { inherit self; };
+      modules."@numtide/numcraft" = import ../../clan-module.nix { inherit self drasl; };
 
       inventory = {
         machines.server = { };

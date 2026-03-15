@@ -1,9 +1,7 @@
-# Minecraft configuration loaded from minecraft.toml and whitelist.toml
+# Minecraft configuration loaded from minecraft.toml
 { pkgs, lib }:
 let
   data = lib.importTOML ./minecraft.toml;
-  whitelistData = lib.importTOML ./whitelist.toml;
-
   fetchMod =
     _name: info:
     pkgs.fetchurl {
@@ -101,8 +99,6 @@ in
   neoforgeVersion = data.neoforge.version;
   serverName = data.server.name;
   serverAddress = data.server.address;
-
-  whitelist = whitelistData.players;
 
   server = {
     mods = serverMods;

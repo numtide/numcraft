@@ -1,0 +1,35 @@
+Remove the Microsoft account ownership check that blocks adding custom
+authentication server accounts without an existing valid MSA account.
+This allows users to add Drasl (authlib-injector) accounts directly.
+
+--- a/launcher/ui/pages/global/AccountListPage.cpp
++++ b/launcher/ui/pages/global/AccountListPage.cpp
+@@ -132,14 +132,6 @@
+
+ void AccountListPage::on_actionAddAuthlibInjector_triggered()
+ {
+-    if (!m_accounts->anyAccountIsValid()) {
+-        QMessageBox::warning(this, tr("Error"),
+-                             tr("You must add a Microsoft account that owns Minecraft before you can add an account on a custom "
+-                                "authentication server."
+-                                "<br><br>"
+-                                "If you have lost your account you can contact Microsoft for support."));
+-        return;
+-    }
+
+     MinecraftAccountPtr account = AuthlibInjectorLoginDialog::newAccount(
+         this, tr("Please enter your username (sometimes an email address), password, and the URL of your API server."
+@@ -170,13 +162,6 @@
+
+ void AccountListPage::on_actionAddOffline_triggered()
+ {
+-    if (!m_accounts->anyAccountIsValid()) {
+-        QMessageBox::warning(this, tr("Error"),
+-                             tr("You must add a Microsoft account that owns Minecraft before you can add an offline account."
+-                                "<br><br>"
+-                                "If you have lost your account you can contact Microsoft for support."));
+-        return;
+-    }
+
+     ChooseOfflineNameDialog dialog(tr("Please enter your desired username to add your offline account."), this);
+     if (dialog.exec() != QDialog::Accepted) {

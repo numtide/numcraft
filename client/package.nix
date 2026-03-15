@@ -1,11 +1,25 @@
 # Numcraft client launcher
-{ pkgs, lib }:
+{
+  pkgs,
+  lib,
+  fjordlauncher-packages,
+}:
 let
   minecraft = import ../minecraft.nix { inherit pkgs lib; };
 
   inherit (minecraft) serversDat serverAddress;
 
-  # Instance configuration for Prism Launcher
+  # Patch Fjord Launcher to remove the MSA account gate
+  fjordlauncher-unwrapped-patched =
+    fjordlauncher-packages.fjordlauncher-unwrapped.overrideAttrs
+      (old: {
+        patches = (old.patches or [ ]) ++ [ ./remove-msa-gate.patch ];
+      });
+  fjordlauncher = fjordlauncher-packages.fjordlauncher.override {
+    fjordlauncher-unwrapped = fjordlauncher-unwrapped-patched;
+  };
+
+  # Instance configuration for Fjord Launcher
   instanceCfg = pkgs.writeText "instance.cfg" ''
     [General]
     ConfigVersion=1.2
@@ -41,7 +55,7 @@ let
     # XDG Base Directory Specification
     : "''${XDG_DATA_HOME:=$HOME/.local/share}"
 
-    instance_dir="$XDG_DATA_HOME/PrismLauncher/instances/Numcraft"
+    instance_dir="$XDG_DATA_HOME/FjordLauncher/instances/Numcraft"
     minecraft_dir="$instance_dir/.minecraft"
     mods_dir="$minecraft_dir/mods"
 
@@ -51,7 +65,7 @@ let
     mkdir -p "$mods_dir"
 
     # Copy instance configuration (overwrite each time to stay in sync)
-    # Use --no-preserve=all so files are writable (Prism Launcher needs to modify these)
+    # Use --no-preserve=all so files are writable (Fjord Launcher needs to modify these)
     cp -f --no-preserve=all "${instanceCfg}" "$instance_dir/instance.cfg"
     cp -f --no-preserve=all "${mmcPackJson}" "$instance_dir/mmc-pack.json"
 
@@ -67,9 +81,12 @@ let
     echo "Numcraft instance configured at: $instance_dir"
     echo "Mods installed: ${toString (lib.length minecraft.client.modList)}"
     echo ""
-    echo "Launching Prism Launcher..."
+    echo "NOTE: You must own a Minecraft license. Log in with your Microsoft"
+    echo "account first, then add the Drasl auth server account."
+    echo ""
+    echo "Launching Fjord Launcher..."
 
-    exec "${pkgs.prismlauncher}/bin/prismlauncher" --launch Numcraft "$@"
+    exec "${fjordlauncher}/bin/fjordlauncher" --launch Numcraft "$@"
   '';
 in
 pkgs.stdenv.mkDerivation {
