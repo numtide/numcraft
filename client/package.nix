@@ -6,6 +6,13 @@ let
   inherit (minecraft) serversDat serverAddress;
 
   # Instance configuration for Prism Launcher
+  #
+  # OverrideNativeWorkarounds=true + UseNativeGLFW=true makes Prism load the
+  # glfw-minecraft from its LD_LIBRARY_PATH instead of the libglfw LWJGL bundles
+  # in its natives jar. The bundled one calls dlopen("libwayland-client.so.0")
+  # with no path, which fails on NixOS (no /usr/lib), so Wayland support is
+  # silently lost and GLFW falls back to X11/GLX -- which then dies in
+  # NeoForge's fmlearlywindow.
   instanceCfg = pkgs.writeText "instance.cfg" ''
     [General]
     ConfigVersion=1.2
@@ -14,6 +21,8 @@ let
     InstanceType=OneSix
     JoinServerOnLaunch=true
     JoinServerOnLaunchAddress=${serverAddress}
+    OverrideNativeWorkarounds=true
+    UseNativeGLFW=true
   '';
 
   # MMC pack configuration
