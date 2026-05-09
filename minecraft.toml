@@ -135,6 +135,30 @@ hash = "sha256-KtxTJe8wYbAh0rE2/Kg22MTNLvrN+dl94jGblKf6KHM="
 server = true
 client = true
 
+[mods.diagonal-fences]
+modrinth_id = "IKARgflD"
+version_id = "acEcLHde"
+filename = "DiagonalFences-v21.8.1-1.21.8-NeoForge.jar"
+hash = "sha256-4Qjv+/bd/M1qZcw3G6G5kfw2+ufQw91nJFogdbTsXtQ="
+server = true
+client = true
+
+[mods.diagonal-windows]
+modrinth_id = "oOi0CKes"
+version_id = "DkVZgxqY"
+filename = "DiagonalWindows-v21.8.1-1.21.8-NeoForge.jar"
+hash = "sha256-Z55+Gp0gkK95vzGcbC1XSSfdsFc4OiiD9cjiYwtzRCY="
+server = true
+client = true
+
+[mods.diagonal-walls]
+modrinth_id = "FQgc8dib"
+version_id = "URY186Aq"
+filename = "DiagonalWalls-v21.8.1-1.21.8-NeoForge.jar"
+hash = "sha256-e/e2nB8VMGSom/Sc/MRJMZp1tm6dHgW+YsqQ+7Inye8="
+server = true
+client = true
+
 # Server-only mods
 
 [mods.distant-horizons]
