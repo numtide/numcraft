@@ -79,14 +79,15 @@ hash = "sha256-kCnNHB3UMaHnxicIlGQo+ePMM8buzgbrysJP/6dsngk="
 server = true
 client = true
 
-# Server-only mods
-
 [mods.no-chat-reports]
 modrinth_id = "qQyHxfxd"
 version_id = "yi6EjUqr"
 filename = "NoChatReports-NEOFORGE-1.21.8-v2.15.0.jar"
 hash = "sha256-fTTdxBTNNznAuo5t0TMHyKaVSIqeXUJSYyT+sV4/E3Y="
 server = true
+client = true
+
+# Server-only mods
 
 [mods.distant-horizons]
 modrinth_id = "uCdwusMi"
