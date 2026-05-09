@@ -87,6 +87,30 @@ hash = "sha256-fTTdxBTNNznAuo5t0TMHyKaVSIqeXUJSYyT+sV4/E3Y="
 server = true
 client = true
 
+[mods.macaws-roofs]
+modrinth_id = "B8jaH3P1"
+version_id = "oXhQ6D7B"
+filename = "mcw-roofs-2.3.2-mc1.21.8neoforge.jar"
+hash = "sha256-fdwgdz4wY30UJHfz25paB00pwcgQn57b1gCghmgs9Hw="
+server = true
+client = true
+
+[mods.puzzles-lib]
+modrinth_id = "QAGBst4M"
+version_id = "SmG35tzq"
+filename = "PuzzlesLib-v21.8.9-1.21.8-NeoForge.jar"
+hash = "sha256-YQzSsW/fr1NriDVo1JcpZ/6bAHR69Bxe33ZCqAp747E="
+server = true
+client = true
+
+[mods.stoneworks]
+modrinth_id = "FzyTKtVF"
+version_id = "j8gzvjHU"
+filename = "Stoneworks-v21.8.0-1.21.8-NeoForge.jar"
+hash = "sha256-KtxTJe8wYbAh0rE2/Kg22MTNLvrN+dl94jGblKf6KHM="
+server = true
+client = true
+
 # Server-only mods
 
 [mods.distant-horizons]
