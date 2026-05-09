@@ -95,6 +95,30 @@ hash = "sha256-fdwgdz4wY30UJHfz25paB00pwcgQn57b1gCghmgs9Hw="
 server = true
 client = true
 
+[mods.macaws-fences-and-walls]
+modrinth_id = "GmwLse2I"
+version_id = "12KATsD8"
+filename = "mcw-mcwfences-1.2.1-mc1.21.8neoforge.jar"
+hash = "sha256-EmhV+ECuaV7l7Vn2iU4zbF0KDhgWMKfw0WD2pybLlno="
+server = true
+client = true
+
+[mods.macaws-paintings]
+modrinth_id = "okE6QVAY"
+version_id = "/y0pPj1gH"
+filename = "mcw-paintings-1.1.0-mc1.21.8neoforge.jar"
+hash = "sha256-h3Wt+MILhdsY3CsiYdstPqSa8pBgrRRIfjGvY33cz6o="
+server = true
+client = true
+
+[mods.macaws-paths]
+modrinth_id = "VRLhWB91"
+version_id = "s8OWq3tt"
+filename = "mcw-mcwpaths-1.1.1-mc1.21.8neoforge.jar"
+hash = "sha256-qNPPLuIQEisP7f9mzxQ2ytI1spTUJiUjdI4yqrfMy7A="
+server = true
+client = true
+
 [mods.puzzles-lib]
 modrinth_id = "QAGBst4M"
 version_id = "SmG35tzq"
