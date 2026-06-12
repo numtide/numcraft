@@ -5,7 +5,7 @@
 minecraft_version = "1.21.8"
 version = "21.8.53"
 url = "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.8.53/neoforge-21.8.53-installer.jar"
-hash = "sha256-RX+UyL+29tr2COp3Jj+GgQXKtsOGmLmaURuuxl1mT50="
+hash = "sha256-Yw4hrrUrljw4fPgexPHpMsElUTLSZUHkHsvTqhPyEds="
 
 [server]
 name = "Numtide Realm"
