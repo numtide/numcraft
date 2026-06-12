@@ -3,9 +3,9 @@
 
 [neoforge]
 minecraft_version = "1.21.8"
-version = "21.8.49"
-url = "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.8.49/neoforge-21.8.49-installer.jar"
-hash = "sha256-ZCYIF/pyTrQo0iZeQI75RizU93grq8Paut+QT0soCJY="
+version = "21.8.53"
+url = "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.8.53/neoforge-21.8.53-installer.jar"
+hash = "sha256-RX+UyL+29tr2COp3Jj+GgQXKtsOGmLmaURuuxl1mT50="
 
 [server]
 name = "Numtide Realm"
@@ -41,9 +41,9 @@ client = true
 
 [mods.voicechat]
 modrinth_id = "9eGKb6K1"
-version_id = "ET1xgBsF"
-filename = "voicechat-neoforge-1.21.8-2.6.6.jar"
-hash = "sha256-vSGVUip2GkaEAOaU1vEt+DMUCTslTri041oEzWGF8w8="
+version_id = "gMtxjlr6"
+filename = "voicechat-neoforge-1.21.8-2.6.18.jar"
+hash = "sha256-1YaZFiycB/FcFs2alWRLBhi/6eeh3XEIMUdfLbcJ5LQ="
 server = true
 client = true
 
@@ -105,7 +105,7 @@ client = true
 
 [mods.macaws-paintings]
 modrinth_id = "okE6QVAY"
-version_id = "/y0pPj1gH"
+version_id = "y0pPj1gH"
 filename = "mcw-paintings-1.1.0-mc1.21.8neoforge.jar"
 hash = "sha256-h3Wt+MILhdsY3CsiYdstPqSa8pBgrRRIfjGvY33cz6o="
 server = true
@@ -163,16 +163,16 @@ client = true
 
 [mods.distant-horizons]
 modrinth_id = "uCdwusMi"
-version_id = "iej5xqn2"
-filename = "DistantHorizons-2.3.6-b-1.21.8-fabric-neoforge.jar"
-hash = "sha256-3vvXezWsCJzYI8dUdyw7lPCcfn2ZALvD63Ue32oVmHY="
+version_id = "G4cfzekJ"
+filename = "DistantHorizons-3.0.3-b-1.21.8-fabric-neoforge.jar"
+hash = "sha256-uQOV+wBs4yrXnPilcoTv6VOdjkSqUk5MxNrhE5CYEG8="
 server = true
 
 [mods.ferritecore]
 modrinth_id = "uXXizFIs"
-version_id = "WmGPid1l"
-filename = "ferritecore-8.0.0-neoforge.jar"
-hash = "sha256-HRKv2Ta3n4EW+mLr0lkgCGpF5mpYslVZRaXsSOrj00s="
+version_id = "vqv9Um4Q"
+filename = "ferritecore-8.0.4-neoforge.jar"
+hash = "sha256-jBNDRFRd3yLBU4/ujnedXBO2T2MukzqG9FmTliY9zG0="
 server = true
 client = true
 
@@ -201,9 +201,9 @@ server = true
 
 [mods.entityculling]
 modrinth_id = "NNAgCjsB"
-version_id = "OmOYDnya"
-filename = "entityculling-neoforge-1.9.5-mc1.21.8.jar"
-hash = "sha256-maKTUfci2kQAzBWCbl7ezje+MqvHWNmFRHJuwL64/VY="
+version_id = "7gSMCPfb"
+filename = "entityculling-neoforge-1.10.2-mc1.21.8.jar"
+hash = "sha256-rj2bxPNaKnfn1EMOqy78w1K9LdRd9cVCy/Y8Zr/S6Q4="
 client = true
 
 [mods.searchables]
@@ -236,9 +236,9 @@ client = true
 
 [mods.xaeros-minimap]
 modrinth_id = "1bokaNcj"
-version_id = "tOWZiqbL"
-filename = "xaerominimap-neoforge-1.21.8-25.3.5.jar"
-hash = "sha256-Nhk+OPhlV/YuYhNRtt7r60z/J6Bqty2pU9cepohtuL0="
+version_id = "3028kfKv"
+filename = "xaerominimap-neoforge-1.21.8-26.1.0.jar"
+hash = "sha256-Kd7oXtPEUaW9mCW44+Ldwgh1h9wkLnQzTn0r6R7yNFo="
 client = true
 
 [mods.mafglib]
@@ -250,16 +250,16 @@ client = true
 
 [mods.forgematica]
 modrinth_id = "dCKRaeBC"
-version_id = "jVHmpNMZ"
-filename = "forgematica-0.4.2+mc1.21.8.jar"
-hash = "sha256-kxccN4CVQzWRl7yQHaHgJhadW0wg4B/ODbehR7VXDYc="
+version_id = "azhj8VEd"
+filename = "forgematica-0.4.3+mc1.21.8.jar"
+hash = "sha256-i3rx5qsRWH2dXPqsAa/VdczphDSW2Sv78XW36o1WoLM="
 client = true
 
 [mods.xaeros-world-map]
 modrinth_id = "NcUtCpym"
-version_id = "tbX9IQ0A"
-filename = "xaeroworldmap-neoforge-1.21.8-1.40.11.jar"
-hash = "sha256-cheHMgYdkHGMUPU0leyqxjf/kO8NDhNuU1Jfp0bJxT0="
+version_id = "tOPHsPnk"
+filename = "xaeroworldmap-neoforge-1.21.8-1.41.0.jar"
+hash = "sha256-B6TIdaCFCZ7bVUdppbzDjdjn86gmmaUffA3hujuQ5jQ="
 client = true
 
 [mods.nemos-inventory-sorting]
