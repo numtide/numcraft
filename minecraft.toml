@@ -2,10 +2,10 @@
 # Defines NeoForge version, server info, and all mods
 
 [neoforge]
-minecraft_version = "1.21.8"
-version = "21.8.53"
-url = "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.8.53/neoforge-21.8.53-installer.jar"
-hash = "sha256-Yw4hrrUrljw4fPgexPHpMsElUTLSZUHkHsvTqhPyEds="
+minecraft_version = "1.21.11"
+version = "21.11.42"
+url = "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.11.42/neoforge-21.11.42-installer.jar"
+hash = "sha256-LPmTdaDrwuonRAPmKu2zCmSlxdzH1G8ndhegTQQNnKQ="
 
 [server]
 name = "Numtide Realm"
@@ -17,145 +17,145 @@ address = "arcade1.m.ntd.one"
 
 [mods.cc-tweaked]
 modrinth_id = "gu7yAYhd"
-version_id = "dBPmp0IA"
-filename = "cc-tweaked-1.21.8-forge-1.116.1.jar"
-hash = "sha256-ruPrW3kHTM4kAP4c8t5YHrDWfjPnq5+O3R1bTxka60M="
+version_id = "iIvmFQ8o"
+filename = "cc-tweaked-1.21.11-forge-1.117.1.jar"
+hash = "sha512-VAlgKg9cTTOzNlWEmQ4VdoCh+kTV7Au2llN3gUv2yU0yryXOY337tm68f9gne3Qm8wNTxUj5cnHEoeskZfv2hQ=="
 server = true
 client = true
 
 [mods.jei]
 modrinth_id = "u6dRKJwZ"
-version_id = "ru8HioLg"
-filename = "jei-1.21.8-neoforge-24.2.0.6.jar"
-hash = "sha256-Kp5xYAy+G/+5R7K5Sf896Z6bgYEJ7lsV5fBDFa2hmVg="
+version_id = "PtmKIfIA"
+filename = "jei-1.21.11-neoforge-27.4.0.22.jar"
+hash = "sha512-MpTAgWGCpNQrofR2glxjgV3PUlB8ha8IWEyFCrAVZvTm4Xr26acpBeXYXwzvx0GS5iTR8nxUPIsJvhswzCMkig=="
 server = true
 client = true
 
 [mods.lithium]
 modrinth_id = "gvQqBUqZ"
-version_id = "TSzQRFtn"
-filename = "lithium-neoforge-0.18.1+mc1.21.8.jar"
-hash = "sha256-1CA28BKl8HIpItI+Je1ljL30r+Xxp8ndF4zC2lvnJwM="
+version_id = "M93zf1Gr"
+filename = "lithium-neoforge-0.21.4+mc1.21.11.jar"
+hash = "sha512-33L5jwpniqobxpZxBbAKwFM/B47DqFCYOF1aSjbuX44QEQnKGa4hcLpua1XBXEp2VJdtfEV/CexEzaP/9KfycA=="
 server = true
 client = true
 
 [mods.voicechat]
 modrinth_id = "9eGKb6K1"
-version_id = "gMtxjlr6"
-filename = "voicechat-neoforge-1.21.8-2.6.18.jar"
-hash = "sha256-1YaZFiycB/FcFs2alWRLBhi/6eeh3XEIMUdfLbcJ5LQ="
+version_id = "TbZ30O4B"
+filename = "voicechat-neoforge-1.21.11-2.6.18.jar"
+hash = "sha512-h8Tyre7GnoGsQmeY17/DKGSB5mPpxQgBwLFRcqmX6sPJJoNpWnKAZusYW2SKRK/42ubIzAe+ey1T8jPOgoSeEg=="
 server = true
 client = true
 
 [mods.appleskin]
 modrinth_id = "EsAfCjCV"
-version_id = "zu0t9UzU"
-filename = "appleskin-neoforge-mc1.21.6-3.0.8.jar"
-hash = "sha256-wSP82IhQRXApTmydAnWobRZsMjbtbiq8wLiuvmeNFyI="
+version_id = "MH9ov9DW"
+filename = "appleskin-neoforge-mc1.21.11-3.0.8.jar"
+hash = "sha512-QPW290qLKkjdhcAnXg/YiH01oFCoZzJl22K9yOTvntt/Tk9HIZYl7eL58LUhfPTH8Nya7XLiu8ASyoSrsJChlw=="
 server = true
 client = true
 
 [mods.jade]
 modrinth_id = "nvQzSEkH"
-version_id = "V5Hbf49Y"
-filename = "Jade-1.21.8-NeoForge-19.3.1.jar"
-hash = "sha256-aekd9aXtuDQPXODaNQBXCF+qwSC5d066nK9X5lhY0Lc="
+version_id = "LDFqgwEA"
+filename = "Jade-1.21.11-NeoForge-21.1.7.jar"
+hash = "sha512-DO2b4hTiv9PVr+nP8c0+JD3n+Mo9S5/nc/UBm/2fgxoxpfGFhlzZRogpSoN17RQsUr4sy1Zb/DjEYj0YwsJlxA=="
 server = true
 client = true
 
 [mods.modernfix]
 modrinth_id = "TjSm1wrD"
-version_id = "UNhbjZTv"
-filename = "modernfix-neoforge-5.20.4-1.21.8.jar"
-hash = "sha256-l+yK/m1AzVjvVvWw0oBrstpFvBqNHlVS6Ae4Dmzg9Nk="
+version_id = "BEBb0SF0"
+filename = "modernfix-neoforge-5.21.0.jar"
+hash = "sha512-V+rpUR3DV0zeRg7UrnpS/LVThIkrkM7ikF/ceBU48Kp/Nk3nZy9uZ0o6lJjU6ZMOzE7gi7qS0R4ApLGfkyeSBQ=="
 server = true
 client = true
 
 [mods.spark]
 modrinth_id = "l6YH9Als"
-version_id = "7ryRNKVI"
-filename = "spark-1.10.142-neoforge.jar"
-hash = "sha256-kCnNHB3UMaHnxicIlGQo+ePMM8buzgbrysJP/6dsngk="
+version_id = "FZ8rM4gr"
+filename = "spark-1.10.170-neoforge.jar"
+hash = "sha512-ZtYjMRwok/KxYX0PbxSKGkUbNDE4CbdkCH+AK4UWe1ik1AvQ3gbw1b7/I65twKA+CHzXKnaWQ1LN/Yp95X20xg=="
 server = true
 client = true
 
 [mods.no-chat-reports]
 modrinth_id = "qQyHxfxd"
-version_id = "yi6EjUqr"
-filename = "NoChatReports-NEOFORGE-1.21.8-v2.15.0.jar"
-hash = "sha256-fTTdxBTNNznAuo5t0TMHyKaVSIqeXUJSYyT+sV4/E3Y="
+version_id = "VzOlr0Q0"
+filename = "NoChatReports-NEOFORGE-1.21.11-v2.18.0.jar"
+hash = "sha512-Z3eR9ruVZy+KM5xEMjV3F0B48s4xefXa5/L90kvOpmjV32B25LEeqUj5pAa4ufrXHTmNOzWSsmnXTWlXuRN+2Q=="
 server = true
 client = true
 
 [mods.macaws-roofs]
 modrinth_id = "B8jaH3P1"
-version_id = "oXhQ6D7B"
-filename = "mcw-roofs-2.3.2-mc1.21.8neoforge.jar"
-hash = "sha256-fdwgdz4wY30UJHfz25paB00pwcgQn57b1gCghmgs9Hw="
+version_id = "e12JheY6"
+filename = "mcw-roofs-2.3.2-mc1.21.11neoforge.jar"
+hash = "sha512-hHHyXVSfit2UwFI5EgfUE77vtV/H6UDRenmlmKBuYdAIm4KpmYIwfghz703xbjc/ebf/SAZbgwap2CNJ/1cvNg=="
 server = true
 client = true
 
 [mods.macaws-fences-and-walls]
 modrinth_id = "GmwLse2I"
-version_id = "12KATsD8"
-filename = "mcw-mcwfences-1.2.1-mc1.21.8neoforge.jar"
-hash = "sha256-EmhV+ECuaV7l7Vn2iU4zbF0KDhgWMKfw0WD2pybLlno="
+version_id = "ZUByzxVa"
+filename = "mcw-fences-1.2.1-mc1.21.11neoforge.jar"
+hash = "sha512-aIfxgjZv39iWkOgeLE5RSXnkgOpTn8hOcJGU9b/+/lR2GMP8/KCfREp6FbmiWGlXZngDAM1d3UNk8iBfnaORsw=="
 server = true
 client = true
 
 [mods.macaws-paintings]
 modrinth_id = "okE6QVAY"
-version_id = "y0pPj1gH"
-filename = "mcw-paintings-1.1.0-mc1.21.8neoforge.jar"
-hash = "sha256-h3Wt+MILhdsY3CsiYdstPqSa8pBgrRRIfjGvY33cz6o="
+version_id = "fkZxn0rA"
+filename = "mcw-paintings-1.1.0-mc1.21.11neoforge.jar"
+hash = "sha512-KhwPs2CtnOngCTPSzlD1p1UC+7bKUjAlpwJ1b5utZoui3ap+UXLZkK9ozUacNpXdssos0R4dRI96iGDl0VqEUw=="
 server = true
 client = true
 
 [mods.macaws-paths]
 modrinth_id = "VRLhWB91"
-version_id = "s8OWq3tt"
-filename = "mcw-mcwpaths-1.1.1-mc1.21.8neoforge.jar"
-hash = "sha256-qNPPLuIQEisP7f9mzxQ2ytI1spTUJiUjdI4yqrfMy7A="
+version_id = "u5EEK1or"
+filename = "mcw-paths-1.1.1-mc1.21.11neoforge.jar"
+hash = "sha512-v/Q901svdSS/nSsli1NWFdr49KQCI25G+CbLAavbg6n2obcYXLJ2hoDWNzPCbf5RZcx3qCLtJ524elossStK8g=="
 server = true
 client = true
 
 [mods.puzzles-lib]
 modrinth_id = "QAGBst4M"
-version_id = "SmG35tzq"
-filename = "PuzzlesLib-v21.8.9-1.21.8-NeoForge.jar"
-hash = "sha256-YQzSsW/fr1NriDVo1JcpZ/6bAHR69Bxe33ZCqAp747E="
+version_id = "HOkyIMYP"
+filename = "PuzzlesLib-v21.11.13-mc1.21.11-NeoForge.jar"
+hash = "sha512-GNSNZ4354tj4Uj/pbc0GB12beHwmiTTi/cTTwpY0+CykGhwpIJaEqkMb+ztaRc7nPskU726SoOIUS8ywSMgb9Q=="
 server = true
 client = true
 
 [mods.stoneworks]
 modrinth_id = "FzyTKtVF"
-version_id = "j8gzvjHU"
-filename = "Stoneworks-v21.8.0-1.21.8-NeoForge.jar"
-hash = "sha256-KtxTJe8wYbAh0rE2/Kg22MTNLvrN+dl94jGblKf6KHM="
+version_id = "b0HJVUlk"
+filename = "Stoneworks-v21.11.0-mc1.21.11-NeoForge.jar"
+hash = "sha512-RQdy7gr0mJMiXbsUpt/9jqI8hzyy2mG2ezGRMFZ8SgkdQL3w6C2eiQ952VLksUJN5xfCaHniHmVAP8J/Vo7W7Q=="
 server = true
 client = true
 
 [mods.diagonal-fences]
 modrinth_id = "IKARgflD"
-version_id = "acEcLHde"
-filename = "DiagonalFences-v21.8.1-1.21.8-NeoForge.jar"
-hash = "sha256-4Qjv+/bd/M1qZcw3G6G5kfw2+ufQw91nJFogdbTsXtQ="
+version_id = "tCAH6gZj"
+filename = "DiagonalFences-v21.11.1-mc1.21.11-NeoForge.jar"
+hash = "sha512-0GMcA1qdgw2vM9vPwwWxM9ksyl9yHEtIz7aobLJY+DktpvL3Fa1HZXRjeKrnt0VjRKWEEgWIBkw/tPW0kuLeXg=="
 server = true
 client = true
 
 [mods.diagonal-windows]
 modrinth_id = "oOi0CKes"
-version_id = "DkVZgxqY"
-filename = "DiagonalWindows-v21.8.1-1.21.8-NeoForge.jar"
-hash = "sha256-Z55+Gp0gkK95vzGcbC1XSSfdsFc4OiiD9cjiYwtzRCY="
+version_id = "rNqzjsKo"
+filename = "DiagonalWindows-v21.11.1-mc1.21.11-NeoForge.jar"
+hash = "sha512-w9cGyGGT3Y9Ljror46ngwxJf0HR/sIRQFonZaVw7Sz/j/EyFCwUDNIvTYdmgUY0OT6+StKe1+4rhqPxGHc8uSQ=="
 server = true
 client = true
 
 [mods.diagonal-walls]
 modrinth_id = "FQgc8dib"
-version_id = "URY186Aq"
-filename = "DiagonalWalls-v21.8.1-1.21.8-NeoForge.jar"
-hash = "sha256-e/e2nB8VMGSom/Sc/MRJMZp1tm6dHgW+YsqQ+7Inye8="
+version_id = "360hRrtL"
+filename = "DiagonalWalls-v21.11.1-mc1.21.11-NeoForge.jar"
+hash = "sha512-+51mzs3GbYeMc/dskuPRn8pzsVknxlKIVFui1VXNPtJHrJHD/pAH1DElTTfPf7tW5grX1tg9vbiR4tajfsHGjA=="
 server = true
 client = true
 
@@ -163,108 +163,108 @@ client = true
 
 [mods.distant-horizons]
 modrinth_id = "uCdwusMi"
-version_id = "G4cfzekJ"
-filename = "DistantHorizons-3.0.3-b-1.21.8-fabric-neoforge.jar"
-hash = "sha256-uQOV+wBs4yrXnPilcoTv6VOdjkSqUk5MxNrhE5CYEG8="
+version_id = "B1HnfKO7"
+filename = "DistantHorizons-3.0.3-b-1.21.11-fabric-neoforge.jar"
+hash = "sha512-CyOsAkwjz/3GkS6FLFeYV9nBwgCkt2kGTymIL97Pg0QqQ90bnNZXL1NY+iCMFhoII9z249MuU15X7upCw4/Cpw=="
 server = true
 
 [mods.ferritecore]
 modrinth_id = "uXXizFIs"
-version_id = "vqv9Um4Q"
-filename = "ferritecore-8.0.4-neoforge.jar"
-hash = "sha256-jBNDRFRd3yLBU4/ujnedXBO2T2MukzqG9FmTliY9zG0="
+version_id = "mLI5k2Gi"
+filename = "ferritecore-8.2.0-neoforge.jar"
+hash = "sha512-g/QCq4xc1KoorZIq8Mjs2C2uzJ5/r3R16/qZnzz3YAWqshcKZMthauTm42qCsSZcsBZ0VOAhHIck4C/TvCNyGw=="
 server = true
 client = true
 
 [mods.servercore]
 modrinth_id = "4WWQxlQP"
-version_id = "LovZDz4w"
-filename = "servercore-neoforge-1.5.14+1.21.8.jar"
-hash = "sha256-Iu3wCNOOfDQLOApXbC9mm0DjDk4kELZxUmYIcVm5QTs="
+version_id = "7Fkwao8d"
+filename = "servercore-neoforge-1.5.15+1.21.11.jar"
+hash = "sha512-m1ANDgSbi3/QjN/O5p13rdWKrN9DjSNWYRjrozP63Gx+37mKai8vhzd7SaCCni28GpDud3rg64psYyrNJiqYiw=="
 server = true
 
 [mods.alternate-current]
 modrinth_id = "r0v8vy1s"
-version_id = "KnldqVfO"
-filename = "alternate_current-mc1.21.5-1.9.0.jar"
-hash = "sha256-mdG1zT2Ag0PI8TdajyjdN90z+vOD0BGaaHArckMiv8c="
+version_id = "YHZsmom1"
+filename = "alternate_current-mc1.21.11-1.9.0.jar"
+hash = "sha512-c8lOJheDdgvKlCRdbF0FTDVKUjH/5KacMv2AzV7ORWOKINDNyx192/FB1/+QRKXHi/vv49wJ+iO5QTYjWd6FaQ=="
 server = true
 
 [mods.chunky]
 modrinth_id = "fALzjamp"
-version_id = "LqL1fnq0"
-filename = "Chunky-NeoForge-1.4.40.jar"
-hash = "sha256-rLxygXUS3cNQu3m/AiyAKZJZTqymq1r+5E8uj2Onah0="
+version_id = "gF4bKpRK"
+filename = "Chunky-NeoForge-1.4.54.jar"
+hash = "sha512-qjWmrr9a7vD8Qo5ym2B6QOZ/QTvnwdw4x8HxWJw1ve/aV6aGJ82A0ZZ9y4T2iXFpmCvYDQ71enE66JrW/3artA=="
 server = true
 
 # Client-only mods
 
 [mods.entityculling]
 modrinth_id = "NNAgCjsB"
-version_id = "7gSMCPfb"
-filename = "entityculling-neoforge-1.10.2-mc1.21.8.jar"
-hash = "sha256-rj2bxPNaKnfn1EMOqy78w1K9LdRd9cVCy/Y8Zr/S6Q4="
+version_id = "Or61dUDn"
+filename = "entityculling-neoforge-1.10.2-mc1.21.11.jar"
+hash = "sha512-RQdYU2kmMQnXv9wvOPZ6AfKtfnWBGrFqVlUy4j/n0ZUPZ8hODQOxs2pJhOQcIiUKUV/SjkjAq+Z/TQSjSlynbA=="
 client = true
 
 [mods.searchables]
 modrinth_id = "fuuu3xnx"
-version_id = "SYIqnLip"
-filename = "Searchables-neoforge-1.21.8-1.0.2.jar"
-hash = "sha256-syPM2Pa5opwqVqDwVQZiVlF/00m8tIzN2HSrjFplxsI="
+version_id = "Q0OwTB2u"
+filename = "Searchables-neoforge-1.21.11-1.0.4.jar"
+hash = "sha512-UZPzV3bLtZ4JO/wjY7C16/dhu9WLfa+yyx/Ih7zYb3m19olDvQesr5LOWRBtWMcT+kMwmgnWJCX6x5L/G4XGBQ=="
 client = true
 
 [mods.controlling]
 modrinth_id = "xv94TkTM"
-version_id = "ihQqMaN8"
-filename = "Controlling-neoforge-1.21.8-26.0.3.jar"
-hash = "sha256-UPx+samhhfrA4kIJvbA3k733JxIAofs/5dZzEGrDHLg="
+version_id = "hdMpvWkx"
+filename = "Controlling-neoforge-1.21.11-29.0.1.jar"
+hash = "sha512-ItPKYDGu5OHHQ0X2rDss99AmjFooRg6XpEre9raNvh0nOe7ipad2AawTi4dgxqWjGIx3yUkwPlTJ0ghio+gBSQ=="
 client = true
 
 [mods.mouse-tweaks]
 modrinth_id = "aC3cM3Vq"
-version_id = "bjlKDjG5"
-filename = "MouseTweaks-neoforge-mc1.21.6-2.28.jar"
-hash = "sha256-3Bnzns6d1q5PLpaegma364CScR70AAjlt+tZZcsG1Pc="
+version_id = "bSiQNj2W"
+filename = "MouseTweaks-neoforge-mc1.21.11-2.30.jar"
+hash = "sha512-Lg0CbsqsCR8fFOWCq2BEMuNfT8JGu2K3FgWmllDQWoj5VFBlYSPbXWEkY5BgsbumjI237ENOJf/eKc6THWuDKA=="
 client = true
 
 [mods.sodium]
 modrinth_id = "AANobbMI"
-version_id = "q6wdZywr"
-filename = "sodium-neoforge-0.7.3+mc1.21.8.jar"
-hash = "sha256-6AQyuem65/AbvR40Uzwp0+SSHQ4empKcOfYmxHci+u4="
+version_id = "ylHOo4fY"
+filename = "sodium-neoforge-0.8.12+mc1.21.11.jar"
+hash = "sha512-1VD3qnIu1pmLfM/k2zL4w8tHy0GeoC1wVZUQ0C1fed9/Px1yAmPhHBSCUthBupIO+xY7b8BjfJEM5Jk2V9vMSw=="
 client = true
 
 [mods.xaeros-minimap]
 modrinth_id = "1bokaNcj"
-version_id = "3028kfKv"
-filename = "xaerominimap-neoforge-1.21.8-26.1.0.jar"
-hash = "sha256-Kd7oXtPEUaW9mCW44+Ldwgh1h9wkLnQzTn0r6R7yNFo="
+version_id = "ErpY15Mo"
+filename = "xaerominimap-neoforge-1.21.11-26.1.0.jar"
+hash = "sha512-ug0MaSYSEpysI2DjPF9BOv7rqmSiWCsPEECmtXXIaBIAEK6+J355UCpEy8ngIr2yP+cSN7C5T4/mVidxEycgaQ=="
 client = true
 
 [mods.mafglib]
 modrinth_id = "SKI34J7B"
-version_id = "4E6KWMAH"
-filename = "mafglib-0.4.5+mc1.21.8.jar"
-hash = "sha256-tdaq0vnQ8CvMmCLUEdeRg2hjyf5nKQDnyqIgXpxVXCE="
+version_id = "fKaY22pe"
+filename = "mafglib-0.4.4+mc1.21.11.jar"
+hash = "sha512-SSB7pEqbFBUMpNrBS2FI5r1IFDGPFI4ahqXKv3Fb80N7R9/Nm5qMxdUpCbkGNmRzCJ14oVBXJWu4dbGxEFM4Fw=="
 client = true
 
 [mods.forgematica]
 modrinth_id = "dCKRaeBC"
-version_id = "azhj8VEd"
-filename = "forgematica-0.4.3+mc1.21.8.jar"
-hash = "sha256-i3rx5qsRWH2dXPqsAa/VdczphDSW2Sv78XW36o1WoLM="
+version_id = "ZE91V8aJ"
+filename = "forgematica-0.4.2+mc1.21.11.jar"
+hash = "sha512-IDl/6Xmc3FwrGP+a3xYGm/Zb/xRX+fF//bdKs2EY8F63dmuEv/RYSiklyhQzxupvIpP9GUJyhcUaSWC4j7eGtg=="
 client = true
 
 [mods.xaeros-world-map]
 modrinth_id = "NcUtCpym"
-version_id = "tOPHsPnk"
-filename = "xaeroworldmap-neoforge-1.21.8-1.41.0.jar"
-hash = "sha256-B6TIdaCFCZ7bVUdppbzDjdjn86gmmaUffA3hujuQ5jQ="
+version_id = "l8Icnu83"
+filename = "xaeroworldmap-neoforge-1.21.11-1.41.0.jar"
+hash = "sha512-0x4GYIke5I+5lDXwQWWlCo3AC1urzFHWboGeqen3V22/5FDgZBScEAee9JRv1iou3DSJAm5hxk+hiRCxNW+mHA=="
 client = true
 
 [mods.nemos-inventory-sorting]
 modrinth_id = "JHgf35QL"
-version_id = "PYyQU76o"
-filename = "nemos-inventory-sorting-NeoForge-1.21.8-1.14.4.jar"
-hash = "sha256-HI72bfdZ2pSQkvHfI53oekhqCoIBTEpDIm71kFKyLqM="
+version_id = "VJmSL2Rh"
+filename = "nemos-inventory-sorting-NeoForge-1.21.11-1.14.9.jar"
+hash = "sha512-m0cjD+CqZnJb3mXl2gmWkq/UFyXohOcnamcjuuzcaj63jXy+6P/LMstdycQWEExpehIf+2TWZibDCvo6XlrSAA=="
 client = true
