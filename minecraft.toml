@@ -183,6 +183,14 @@ hash = "sha256-zj5EsE7fY73h2SuLZn7vt3HHI77cv5hEJrPD4aaK5C0="
 server = true
 client = true
 
+[mods.cloth-config]
+modrinth_id = "9s6osm5g"
+version_id = "Wsus0EWg"
+filename = "cloth-config-21.11.153-neoforge.jar"
+hash = "sha256-zw1iGAkleUkcQAa5jh7nScFqckmYukq4vG97+nWyW8U="
+server = true
+client = true
+
 # Server-only mods
 
 [mods.distant-horizons]
