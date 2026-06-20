@@ -167,6 +167,14 @@ hash = "sha512-g/QCq4xc1KoorZIq8Mjs2C2uzJ5/r3R16/qZnzz3YAWqshcKZMthauTm42qCsSZcs
 server = true
 client = true
 
+[mods.building-wands]
+modrinth_id = "XkisZUfp"
+version_id = "EbHYkJ2c"
+filename = "BuildingWands-neoforge-MC1.21.11-3.0.5.jar"
+hash = "sha256-TpJoPQXGEdNNDWLIFiRBXTHWl85p9aDFqCwn3U8qMLI="
+server = true
+client = true
+
 # Server-only mods
 
 [mods.distant-horizons]
