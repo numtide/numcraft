@@ -175,6 +175,14 @@ hash = "sha256-TpJoPQXGEdNNDWLIFiRBXTHWl85p9aDFqCwn3U8qMLI="
 server = true
 client = true
 
+[mods.architectury]
+modrinth_id = "lhGA9TYQ"
+version_id = "EvL9NK2R"
+filename = "architectury-19.0.1-neoforge.jar"
+hash = "sha256-zj5EsE7fY73h2SuLZn7vt3HHI77cv5hEJrPD4aaK5C0="
+server = true
+client = true
+
 # Server-only mods
 
 [mods.distant-horizons]
