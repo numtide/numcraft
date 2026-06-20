@@ -159,6 +159,14 @@ hash = "sha512-+51mzs3GbYeMc/dskuPRn8pzsVknxlKIVFui1VXNPtJHrJHD/pAH1DElTTfPf7tW5
 server = true
 client = true
 
+[mods.ferritecore]
+modrinth_id = "uXXizFIs"
+version_id = "mLI5k2Gi"
+filename = "ferritecore-8.2.0-neoforge.jar"
+hash = "sha512-g/QCq4xc1KoorZIq8Mjs2C2uzJ5/r3R16/qZnzz3YAWqshcKZMthauTm42qCsSZcsBZ0VOAhHIck4C/TvCNyGw=="
+server = true
+client = true
+
 # Server-only mods
 
 [mods.distant-horizons]
@@ -167,14 +175,6 @@ version_id = "B1HnfKO7"
 filename = "DistantHorizons-3.0.3-b-1.21.11-fabric-neoforge.jar"
 hash = "sha512-CyOsAkwjz/3GkS6FLFeYV9nBwgCkt2kGTymIL97Pg0QqQ90bnNZXL1NY+iCMFhoII9z249MuU15X7upCw4/Cpw=="
 server = true
-
-[mods.ferritecore]
-modrinth_id = "uXXizFIs"
-version_id = "mLI5k2Gi"
-filename = "ferritecore-8.2.0-neoforge.jar"
-hash = "sha512-g/QCq4xc1KoorZIq8Mjs2C2uzJ5/r3R16/qZnzz3YAWqshcKZMthauTm42qCsSZcsBZ0VOAhHIck4C/TvCNyGw=="
-server = true
-client = true
 
 [mods.servercore]
 modrinth_id = "4WWQxlQP"
