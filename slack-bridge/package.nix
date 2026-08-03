@@ -3,7 +3,17 @@
 }:
 let
   python = python3.withPackages (ps: [
-    ps.slack-bolt
+    ((ps.slack-bolt.override {
+      pyramid = ps.pyramid.overridePythonAttrs (old: {
+        build-system = [
+          ps.setuptools_80
+        ];
+      });
+    }).overridePythonAttrs (old: {
+      build-system = [
+        ps.setuptools_80
+      ];
+    }))
     ps.slack-sdk
     ps.watchdog
   ]);
