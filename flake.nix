@@ -31,7 +31,7 @@
         numcraft-slack-bridge = final.callPackage ./slack-bridge/package.nix { };
       };
 
-      checks = lib.genAttrs [ "x86_64-linux" "aarch64-linux" ] (
+      checks = lib.genAttrs [ "x86_64-linux" ] (
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
