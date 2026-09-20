@@ -3,8 +3,10 @@
 {
   _class = "clan.service";
   manifest.name = "@numtide/numcraft";
+  manifest.readme = "Numtide Minecraft server with a Slack chat bridge.";
 
   roles.default = {
+    description = "Runs the Minecraft server and the Slack bridge.";
     interface = {
       options = {
         slackChannelId = lib.mkOption {
