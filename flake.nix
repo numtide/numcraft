@@ -44,6 +44,10 @@
         }
       );
 
+      ci = lib.genAttrs [ "x86_64-linux" ] (system: {
+        inherit (self.packages.${system}) client mrpack slack-bridge;
+      });
+
       flakeModules.default = flake-parts.lib.importApply ./flake-module.nix { inherit self; };
     };
 }

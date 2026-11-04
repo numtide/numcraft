@@ -1,0 +1,4 @@
+# checks.server-start is a clan VM test and needs import-from-derivation,
+# which nixbot disallows. Build the packages instead; run the VM test with
+# `nix flake check` locally.
+attribute = "ci"
