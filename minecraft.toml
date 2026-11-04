@@ -3,9 +3,9 @@
 
 [neoforge]
 minecraft_version = "1.21.11"
-version = "21.11.42"
-url = "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.11.42/neoforge-21.11.42-installer.jar"
-hash = "sha256-lO08mIE8YWPSUit0Bh+htU/DtqLdNhNHMNpVAnLBx/s="
+version = "21.11.48"
+url = "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.11.48/neoforge-21.11.48-installer.jar"
+hash = "sha256-k9nYwdAzXB5SuJEU/Er8po1P0w8N8NN5kAUeto4wj6k="
 
 [server]
 name = "Numtide Realm"
@@ -25,9 +25,9 @@ client = true
 
 [mods.jei]
 modrinth_id = "u6dRKJwZ"
-version_id = "PtmKIfIA"
-filename = "jei-1.21.11-neoforge-27.4.0.22.jar"
-hash = "sha512-MpTAgWGCpNQrofR2glxjgV3PUlB8ha8IWEyFCrAVZvTm4Xr26acpBeXYXwzvx0GS5iTR8nxUPIsJvhswzCMkig=="
+version_id = "yntsg2fj"
+filename = "jei-1.21.11-neoforge-27.48.0.106.jar"
+hash = "sha512-AGKWbnb19vGsQivQ12I8E9lKfUbfnTZ+aSGV+0jN1PCOLrhjcQZu/dPhaqSbzvFcZxTUsySWZtqd0TI2w0Pa7Q=="
 server = true
 client = true
 
@@ -41,9 +41,9 @@ client = true
 
 [mods.voicechat]
 modrinth_id = "9eGKb6K1"
-version_id = "TbZ30O4B"
-filename = "voicechat-neoforge-1.21.11-2.6.18.jar"
-hash = "sha512-h8Tyre7GnoGsQmeY17/DKGSB5mPpxQgBwLFRcqmX6sPJJoNpWnKAZusYW2SKRK/42ubIzAe+ey1T8jPOgoSeEg=="
+version_id = "k7nBzwiA"
+filename = "voicechat-neoforge-1.21.11-2.6.22.jar"
+hash = "sha512-U17K11G6osfCqtLZLNWBRcKRB+m7AwngDNOClw24iay3X/fdDrfZiGYl6pwiO3iwLpWjFelRf4yrCnBtKVQmLg=="
 server = true
 client = true
 
@@ -225,9 +225,9 @@ server = true
 
 [mods.entityculling]
 modrinth_id = "NNAgCjsB"
-version_id = "Or61dUDn"
-filename = "entityculling-neoforge-1.10.2-mc1.21.11.jar"
-hash = "sha512-RQdYU2kmMQnXv9wvOPZ6AfKtfnWBGrFqVlUy4j/n0ZUPZ8hODQOxs2pJhOQcIiUKUV/SjkjAq+Z/TQSjSlynbA=="
+version_id = "w1sp8Uel"
+filename = "entityculling-neoforge-1.11.3-mc1.21.11.jar"
+hash = "sha512-710Zp61x/pNaU8KA+hrTbI778kREtsigMeegi++5K1lpY42s3R53Z476WEla4hrXdkeUukvKgUFc2csQewno2Q=="
 client = true
 
 [mods.searchables]
@@ -253,37 +253,37 @@ client = true
 
 [mods.sodium]
 modrinth_id = "AANobbMI"
-version_id = "ylHOo4fY"
-filename = "sodium-neoforge-0.8.12+mc1.21.11.jar"
-hash = "sha512-1VD3qnIu1pmLfM/k2zL4w8tHy0GeoC1wVZUQ0C1fed9/Px1yAmPhHBSCUthBupIO+xY7b8BjfJEM5Jk2V9vMSw=="
+version_id = "sC6wj32u"
+filename = "sodium-neoforge-0.8.14+mc1.21.11.jar"
+hash = "sha512-FpmHSo3z2oR1+zcjBqlIaQu3bpUiGmF8c/boHXtwtvtD7Xuej+/HXFoWB+ujOsylbu03T4qLdTqDl2cLQ1mONQ=="
 client = true
 
 [mods.xaeros-minimap]
 modrinth_id = "1bokaNcj"
-version_id = "ErpY15Mo"
-filename = "xaerominimap-neoforge-1.21.11-26.1.0.jar"
-hash = "sha512-ug0MaSYSEpysI2DjPF9BOv7rqmSiWCsPEECmtXXIaBIAEK6+J355UCpEy8ngIr2yP+cSN7C5T4/mVidxEycgaQ=="
+version_id = "Ja2N582k"
+filename = "xaerominimap-neoforge-1.21.11-26.6.2.jar"
+hash = "sha512-gILT7We/1OTyZvbbhE8oEv6jbB6B3PmbYh4tBG4w1hOfZvN4X0ueA9Rm4LSelWHOeVKjoPyKp4kO/bDILD/Q6Q=="
 client = true
 
 [mods.mafglib]
 modrinth_id = "SKI34J7B"
-version_id = "fKaY22pe"
-filename = "mafglib-0.4.4+mc1.21.11.jar"
-hash = "sha512-SSB7pEqbFBUMpNrBS2FI5r1IFDGPFI4ahqXKv3Fb80N7R9/Nm5qMxdUpCbkGNmRzCJ14oVBXJWu4dbGxEFM4Fw=="
+version_id = "y1WRHsk9"
+filename = "mafglib-0.4.7+mc1.21.11.jar"
+hash = "sha512-6C0M9KT99SCM3h+RxreUuuh+ahjLrH0f1vUvP3b54z50624RX9s4xsGSKnvYo29qabzOAS6FSuDNXNgCk+cJwQ=="
 client = true
 
 [mods.forgematica]
 modrinth_id = "dCKRaeBC"
-version_id = "ZE91V8aJ"
-filename = "forgematica-0.4.2+mc1.21.11.jar"
-hash = "sha512-IDl/6Xmc3FwrGP+a3xYGm/Zb/xRX+fF//bdKs2EY8F63dmuEv/RYSiklyhQzxupvIpP9GUJyhcUaSWC4j7eGtg=="
+version_id = "BJ65xT0w"
+filename = "forgematica-0.4.3+mc1.21.11.jar"
+hash = "sha512-gLS2vmothNBx7Q7ZgufQVIMZy/RPCX5noxYRdINEGRAldHl4YIfZnlKX+G6YMqe13t/8H0QWYoMVm8k5f6XnzA=="
 client = true
 
 [mods.xaeros-world-map]
 modrinth_id = "NcUtCpym"
-version_id = "l8Icnu83"
-filename = "xaeroworldmap-neoforge-1.21.11-1.41.0.jar"
-hash = "sha512-0x4GYIke5I+5lDXwQWWlCo3AC1urzFHWboGeqen3V22/5FDgZBScEAee9JRv1iou3DSJAm5hxk+hiRCxNW+mHA=="
+version_id = "IafIztiB"
+filename = "xaeroworldmap-neoforge-1.21.11-1.47.2.jar"
+hash = "sha512-eGWkpZjLZeBewzDU3gN1TyBb07AylgdKxhsTOc8craptogaa9pig+16eUXT7C0jtddzsZlTPGxDRnX39QPTeAg=="
 client = true
 
 [mods.nemos-inventory-sorting]
