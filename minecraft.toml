@@ -191,11 +191,11 @@ hash = "sha256-zw1iGAkleUkcQAa5jh7nScFqckmYukq4vG97+nWyW8U="
 server = true
 client = true
 
-[mods.cushion-backport]
-modrinth_id = "DBGOO7gw"
-version_id = "Ps7I1fAX"
-filename = "cushionbackport-1.21.11-NeoForge-1.0.5.jar"
-hash = "sha512-3cHLI5MlPP+ngE0rHwvfTwVmNBSQOEnxeHcrvIfXkekHrp6ia7fLu1VtvKBx9kVFsXzVbCva0suY7rjiU2PgtQ=="
+[mods.gravestone]
+modrinth_id = "RYtXKJPr"
+version_id = "nkrPVNWT"
+filename = "gravestone-neoforge-1.21.11-1.0.40.jar"
+hash = "sha512-YpPYK3xZ0dL6gp5rDYSmKeN/uG8xc8EjtsnaasRVtGp83NXO2T38UDEDuxLjQ2YpEHuQVUyjAvOaW1uP1FqDfQ=="
 server = true
 client = true
 
