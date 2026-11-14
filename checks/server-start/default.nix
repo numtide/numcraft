@@ -93,7 +93,7 @@ pkgs.testers.runNixOSTest {
     server.wait_until_succeeds(
         "journalctl -u minecraft-slack-bridge.service | grep -F 'log: following /run/minecraft-logs/latest.log'"
     )
-    server.succeed(
+    server.wait_until_succeeds(
         "journalctl -u minecraft-slack-bridge.service | grep -F 'rcon: connected to 127.0.0.1:25575'"
     )
     bridge_pid = server.succeed("systemctl show -p MainPID --value minecraft-slack-bridge.service").strip()
