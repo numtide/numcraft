@@ -60,7 +60,7 @@ func parseLine(line string) (LogEvent, bool) {
 
 // tailLog follows the file through the rotation at every server restart:
 // Minecraft gzips latest.log and starts a new one.
-func tailLog(path string, interval time.Duration, fn func(LogEvent)) {
+func tailLog(path string, interval time.Duration, fn func(LogEvent), report func(state string)) {
 	var file *os.File
 	var reader *bufio.Reader
 	var partial string
@@ -70,6 +70,7 @@ func tailLog(path string, interval time.Duration, fn func(LogEvent)) {
 		if file == nil {
 			f, err := os.Open(path)
 			if err != nil {
+				report("unreadable " + err.Error())
 				time.Sleep(interval)
 				continue
 			}
@@ -78,6 +79,7 @@ func tailLog(path string, interval time.Duration, fn func(LogEvent)) {
 			}
 			whence = io.SeekStart
 			file, reader, partial = f, bufio.NewReader(f), ""
+			report("following " + path)
 		}
 		for {
 			line, err := reader.ReadString('\n')
