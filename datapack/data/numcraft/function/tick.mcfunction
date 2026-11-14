@@ -6,3 +6,6 @@ execute as @a at @s unless score @s numcraft.cooldown matches 1.. if entity @e[t
 execute as @a[tag=numcraft.in_lab] at @s unless dimension numcraft:lab run function numcraft:lab/leave
 execute as @a[tag=!numcraft.in_lab] at @s if dimension numcraft:lab run function numcraft:lab/enter
 execute as @a[tag=numcraft.in_lab] at @s if dimension numcraft:lab run function numcraft:lab/no_portals
+# Named portals. The tag goes when the traveller is off each portal end.
+execute as @a[tag=numcraft.on_portal] at @s unless entity @e[type=minecraft:marker,tag=numcraft.portal,distance=..2.5] run tag @s remove numcraft.on_portal
+execute as @a[tag=!numcraft.on_portal] at @s unless score @s numcraft.cooldown matches 1.. at @e[type=minecraft:marker,tag=numcraft.portal,distance=..1.5,limit=1,sort=nearest] run function numcraft:portal/use
