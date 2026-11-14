@@ -167,6 +167,43 @@ pkgs.testers.runNixOSTest {
     print(xp)
     assert "instantiate" not in xp and "Unknown" not in xp and "Incorrect" not in xp, xp
 
+    # Named portals. A pair inside one dimension first.
+    ow = "execute in minecraft:overworld"
+    lab = "execute in numcraft:lab"
+    end = lambda name, e: "@e[type=minecraft:marker,tag=numcraft.portal,nbt={data:{name:\"" + name + "\",end:\"" + e + "\"}},limit=1]"
+    rcon(ow + " run tp @e[tag=traveller] 8.5 100 8.5")
+    rcon("item replace entity @e[tag=traveller,limit=1] armor.head with minecraft:diamond_helmet")
+    passes(me + " at @s if dimension minecraft:overworld unless entity @s[tag=numcraft.in_lab] if items entity @s armor.head minecraft:diamond_helmet")
+    rcon(ow + " positioned 8.5 100 2.5 run function numcraft:portal/set {name:\"mine\"}")
+    rcon(ow + " positioned 2.5 100 8.5 run function numcraft:portal/set {name:\"mine\"}")
+    expect("data get storage numcraft:portal pairs.mine.a.dim", "minecraft:overworld")
+    expect("data get storage numcraft:portal pairs.mine.b.z", "8.5")
+    print(rcon(me + " at " + end("mine", "a") + " run function numcraft:portal/use"))
+    passes(me + " at @s if entity " + end("mine", "b")[:-1] + ",distance=..0.1]")
+    passes(me + " if entity @s[tag=numcraft.on_portal]")
+    print(rcon(me + " at " + end("mine", "b") + " run function numcraft:portal/use"))
+    passes(me + " at @s if entity " + end("mine", "a")[:-1] + ",distance=..0.1]")
+
+    # A pair that crosses into the lab uses the entry and the exit of the lab.
+    rcon(ow + " positioned 12.5 100 12.5 run function numcraft:portal/set {name:\"show\"}")
+    rcon(lab + " positioned 4.5 -60 4.5 run function numcraft:portal/set {name:\"show\"}")
+    expect("data get storage numcraft:portal pairs.show.b.dim", "numcraft:lab")
+    print(rcon(me + " at " + end("show", "a") + " run function numcraft:portal/use"))
+    passes(me + " at @s if dimension numcraft:lab if entity @s[tag=numcraft.in_lab] unless items entity @s armor.head *")
+    passes(me + " at @s if entity " + end("show", "b")[:-1] + ",distance=..0.1]")
+    print(rcon(me + " at " + end("show", "b") + " run function numcraft:portal/use"))
+    passes(me + " at @s if dimension minecraft:overworld unless entity @s[tag=numcraft.in_lab] if items entity @s armor.head minecraft:diamond_helmet")
+
+    # no portal end in the vault dimension
+    rcon("execute in numcraft:vault positioned 0.5 5 0.5 run function numcraft:portal/set {name:\"bad\"}")
+    expect("data get storage numcraft:portal pairs.bad", "Found no elements")
+
+    rcon("function numcraft:portal/remove {name:\"mine\"}")
+    expect("data get storage numcraft:portal pairs.mine", "Found no elements")
+    passes("execute unless entity @e[type=minecraft:marker,tag=numcraft.portal,nbt={data:{name:\"mine\"}}]")
+    passes("execute if entity " + end("show", "a"))
+    expect(me + " run function numcraft:portal/list", "function numcraft:portal/list")
+
 
     client.fail("nc -z -w 5 server 25575")
 
