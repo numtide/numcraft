@@ -7,3 +7,8 @@ scoreboard objectives add numcraft.var dummy
 execute in numcraft:lab run forceload add 0 0
 # the vaults of the first 16 travellers; lab/vault_prepare loads the others
 execute in numcraft:vault run forceload add 0 0
+scoreboard objectives add numcraft.plot dummy
+scoreboard objectives add numcraft.claim trigger
+scoreboard objectives add numcraft.home trigger
+scoreboard players set #8 numcraft.var 8
+scoreboard players set #40 numcraft.var 40
