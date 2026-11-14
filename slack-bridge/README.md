@@ -35,10 +35,6 @@ answer goes in the thread of that message.
 
 - `!status`: the players, the version, the tick rate and the uptime of the
   server.
-- `!build <text>`: records a build request. It changes nothing in the world.
-  The bridge writes one line to its journal that starts with
-  `build-request:`, for whoever does the builds. Only a Slack user of the
-  mapping can ask.
 - `!help`: the list of the commands.
 
 Each Slack user gets one command in five seconds. A command is not relayed

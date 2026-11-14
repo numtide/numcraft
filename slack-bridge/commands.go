@@ -14,17 +14,11 @@ import (
 	"github.com/slack-go/slack/slackevents"
 )
 
-const (
-	// one command for each Slack user in this time
-	commandInterval = 5 * time.Second
-	buildTextLimit  = 500
-	// an agent reads the journal for this prefix
-	buildRequestPrefix = "build-request:"
-)
+// one command for each Slack user in this time
+const commandInterval = 5 * time.Second
 
 const helpText = "*Commands*\n" +
 	"`!status` players, version, tick rate and uptime of the server\n" +
-	"`!build <text>` record a build request\n" +
 	"`!help` this text"
 
 var (
@@ -35,14 +29,14 @@ var (
 	logVersion  = regexp.MustCompile(`Starting minecraft server version (\S+)`)
 )
 
-// command splits "!build a tower" into "build" and "a tower".
+// command splits "!help me" into "help" and "me".
 func splitCommand(text string) (name, rest string, ok bool) {
 	if !strings.HasPrefix(text, "!") {
 		return "", "", false
 	}
 	name, rest, _ = strings.Cut(strings.TrimPrefix(text, "!"), " ")
 	switch name {
-	case "help", "status", "build":
+	case "help", "status":
 		return name, strings.TrimSpace(rest), true
 	}
 	return "", "", false
@@ -74,8 +68,6 @@ func (b *Bridge) HandleCommand(ev *slackevents.MessageEvent, name, rest string) 
 		answer = helpText
 	case "status":
 		answer = b.status()
-	case "build":
-		answer = b.buildRequest(ev, rest)
 	}
 	thread := ev.ThreadTimeStamp
 	if thread == "" {
@@ -90,23 +82,6 @@ func (b *Bridge) HandleCommand(ev *slackevents.MessageEvent, name, rest string) 
 		)
 		return err
 	})
-}
-
-// buildRequest writes the request to the journal. It changes nothing in the
-// world.
-func (b *Bridge) buildRequest(ev *slackevents.MessageEvent, text string) string {
-	player, ok := b.users[ev.User]
-	if !ok {
-		return "Only a player of the server can ask for a build."
-	}
-	if text == "" {
-		return "Say what to build: `!build <text>`"
-	}
-	if len(text) > buildTextLimit {
-		return fmt.Sprintf("The request is too long. The limit is %d characters.", buildTextLimit)
-	}
-	log.Printf("%s user=%s player=%s ts=%s text=%q", buildRequestPrefix, ev.User, player, ev.TimeStamp, text)
-	return "Request recorded."
 }
 
 // status asks the server over RCON, and reads the start of the server log for

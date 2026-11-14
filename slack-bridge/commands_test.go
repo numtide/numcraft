@@ -18,9 +18,9 @@ func TestSplitCommand(t *testing.T) {
 	}{
 		{"!status", "status", "", true},
 		{"!help me", "help", "me", true},
-		{"!build  a tower of stone ", "build", "a tower of stone", true},
 		// not a command: it stays chat
 		{"!wow", "", "", false},
+		{"!build a tower", "", "", false},
 		{"!!!", "", "", false},
 		{"status", "", "", false},
 		{" !status", "", "", false},
@@ -157,14 +157,7 @@ func TestHandleCommand(t *testing.T) {
 	send(message("U2", "C1", "200.3", "", "!status"))
 	advance(commandInterval)
 	// in the thread of the day the answer stays there, and nothing goes to the game
-	send(message("U1", "C1", "200.4", "111.1", "!build a stone tower\nwith a \"roof\""))
-	advance(commandInterval)
-	// only a player can ask for a build
-	send(message("U2", "C1", "200.5", "", "!build a moat"))
-	advance(commandInterval)
-	send(message("U1", "C1", "200.6", "", "!build"))
-	advance(commandInterval)
-	send(message("U1", "C1", "200.7", "", "!build "+strings.Repeat("x", buildTextLimit+1)))
+	send(message("U1", "C1", "200.4", "111.1", "!help"))
 	advance(commandInterval)
 	// not the bridged channel, a bot, an edit
 	send(message("U1", "C2", "200.8", "", "!status"))
@@ -176,10 +169,7 @@ func TestHandleCommand(t *testing.T) {
 	want := []struct{ thread, text string }{
 		{"200.1", helpText},
 		{"200.3", "*Server status*\nPlayers: 0 of 50"},
-		{"111.1", "Request recorded."},
-		{"200.5", "Only a player of the server can ask for a build."},
-		{"200.6", "Say what to build: `!build <text>`"},
-		{"200.7", "The request is too long. The limit is 500 characters."},
+		{"111.1", helpText},
 	}
 	if len(*calls) != len(want) {
 		t.Fatalf("got %d calls, want %d: %v", len(*calls), len(want), *calls)
@@ -194,19 +184,6 @@ func TestHandleCommand(t *testing.T) {
 		t.Errorf("relayed to the game: %v", relayed)
 	}
 
-	requests := 0
-	for _, line := range strings.Split(logged.String(), "\n") {
-		if strings.Contains(line, buildRequestPrefix) {
-			requests++
-			// one request is one line, whatever the text holds
-			if !strings.HasSuffix(line, `build-request: user=U1 player=zoe ts=200.4 text="a stone tower\nwith a \"roof\""`) {
-				t.Errorf("request line: %q", line)
-			}
-		}
-	}
-	if requests != 1 {
-		t.Errorf("got %d request lines, want 1:\n%s", requests, logged.String())
-	}
 	if !strings.Contains(logged.String(), "command: status from U1 dropped") {
 		t.Errorf("the dropped command is not in the journal:\n%s", logged.String())
 	}
