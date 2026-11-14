@@ -87,6 +87,26 @@ pkgs.testers.runNixOSTest {
         "journalctl -u minecraft-server.service | grep -F 'RCON Client /127.0.0.1'"
     )
 
+    # The bridge has its own user. It follows the server log through a
+    # read-only view of the log directory, and it sees nothing else of the
+    # server.
+    server.wait_until_succeeds(
+        "journalctl -u minecraft-slack-bridge.service | grep -F 'log: following /run/minecraft-logs/latest.log'"
+    )
+    server.succeed(
+        "journalctl -u minecraft-slack-bridge.service | grep -F 'rcon: connected to 127.0.0.1:25575'"
+    )
+    bridge_pid = server.succeed("systemctl show -p MainPID --value minecraft-slack-bridge.service").strip()
+    assert server.succeed(f"stat -c %U /proc/{bridge_pid}").strip() == "minecraft-slack-bridge"
+    assert server.succeed("stat -c '%U:%G %a' /var/lib/minecraft/logs/latest.log").strip() == "minecraft:minecraft-logs 640"
+    as_bridge = f"nsenter --mount --target {bridge_pid} runuser -u minecraft-slack-bridge --"
+    server.succeed(f"{as_bridge} head -c 1 /run/minecraft-logs/latest.log")
+    server.fail(f"{as_bridge} touch /run/minecraft-logs/new")
+    server.fail(f"{as_bridge} ls /var/lib/minecraft")
+    # outside the unit, the user gets no further than the log directory
+    server.fail("runuser -u minecraft-slack-bridge -- cat /var/lib/minecraft/server.properties")
+    server.fail("runuser -u minecraft-slack-bridge -- touch /var/lib/minecraft/logs/new")
+
     players = server.succeed("mcrcon -H 127.0.0.1 -P 25575 -p ${secret} list")
     assert "players online" in players, players
 
