@@ -23,6 +23,9 @@
         slack-bridge = pkgs.callPackage ./slack-bridge/package.nix { };
         client = pkgs.callPackage ./client/package.nix { };
         mrpack = pkgs.callPackage ./mrpack/package.nix { };
+        update = pkgs.writers.writePython3Bin "numcraft-update" {
+          flakeIgnore = [ "E501" ];
+        } (builtins.readFile ./scripts/update.py);
         default = client;
       });
 
@@ -44,7 +47,7 @@
       );
 
       ci = lib.genAttrs [ "x86_64-linux" ] (system: {
-        inherit (self.packages.${system}) client mrpack slack-bridge;
+        inherit (self.packages.${system}) client mrpack slack-bridge update;
         inherit (self.checks.${system}) server-start;
       });
 
