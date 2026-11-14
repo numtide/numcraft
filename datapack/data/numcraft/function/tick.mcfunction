@@ -9,3 +9,11 @@ execute as @a[tag=numcraft.in_lab] at @s if dimension numcraft:lab run function 
 # Named portals. The tag goes when the traveller is off each portal end.
 execute as @a[tag=numcraft.on_portal] at @s unless entity @e[type=minecraft:marker,tag=numcraft.portal,distance=..2.5] run tag @s remove numcraft.on_portal
 execute as @a[tag=!numcraft.on_portal] at @s unless score @s numcraft.cooldown matches 1.. at @e[type=minecraft:marker,tag=numcraft.portal,distance=..1.5,limit=1,sort=nearest] run function numcraft:portal/use
+# /trigger works for a player who is not an operator
+scoreboard players enable @a numcraft.claim
+scoreboard players enable @a numcraft.home
+execute as @a[scores={numcraft.claim=1..}] at @s run function numcraft:lab/claim
+execute as @a[scores={numcraft.home=1..}] at @s run function numcraft:lab/home
+scoreboard players set @a[scores={numcraft.claim=1..}] numcraft.claim 0
+scoreboard players set @a[scores={numcraft.home=1..}] numcraft.home 0
+execute as @a[tag=numcraft.plot_pending] run function numcraft:lab/plot_try

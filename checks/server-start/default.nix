@@ -204,6 +204,34 @@ pkgs.testers.runNixOSTest {
     passes("execute if entity " + end("show", "a"))
     expect(me + " run function numcraft:portal/list", "function numcraft:portal/list")
 
+    # Plots. Plot 0 has its corners at 48 32 and 79 63, and its centre at 64 48.
+    rcon(lab + " run forceload add 48 32 79 63")
+    passes(lab + " if loaded 48 -61 32")
+    passes(lab + " if loaded 79 -61 63")
+    print(rcon(me + " run function numcraft:lab/claim"))
+    passes("execute if score @e[tag=traveller,limit=1] numcraft.plot matches 0")
+    passes(me + " at @s if dimension numcraft:lab if entity @s[tag=numcraft.in_lab,tag=numcraft.plot_pending]")
+    passes(me + " at @s positioned 64 -60 48 if entity @s[distance=..1]")
+    print(rcon(me + " run function numcraft:lab/plot_try"))
+    passes(lab + " if block 48 -60 32 minecraft:sea_lantern")
+    passes(lab + " if block 79 -60 63 minecraft:sea_lantern")
+    passes(lab + " if block 60 -61 32 minecraft:white_concrete")
+    passes(lab + " if block 79 -61 50 minecraft:white_concrete")
+    passes(lab + " if block 60 -61 40 minecraft:grass_block")
+    passes(lab + " positioned 64 -56 48 if entity @e[type=minecraft:text_display,tag=numcraft.plot_label,distance=..1]")
+    passes(lab + " unless entity @e[type=minecraft:item_display,tag=numcraft.head,distance=0..]")
+    passes(me + " unless entity @s[tag=numcraft.plot_pending]")
+    rcon(lab + " run tp @e[tag=traveller] 0.5 -60 0.5")
+    print(rcon(me + " run function numcraft:lab/home"))
+    passes(me + " at @s positioned 64 -60 48 if entity @s[distance=..1]")
+    # a second claim of the same owner gives no second plot; a second owner gets plot 1
+    rcon(me + " run function numcraft:lab/claim")
+    passes("execute if score @e[tag=traveller,limit=1] numcraft.plot matches 0")
+    rcon(lab + " run summon minecraft:armor_stand 0.5 -60 0.5 {Tags:[\"second\"],NoGravity:1b}")
+    rcon("execute as @e[tag=second] run function numcraft:lab/claim")
+    passes("execute if score @e[tag=second,limit=1] numcraft.plot matches 1")
+    passes("execute as @e[tag=second] at @s positioned 104 -60 48 if entity @s[distance=..1]")
+
 
     client.fail("nc -z -w 5 server 25575")
 
