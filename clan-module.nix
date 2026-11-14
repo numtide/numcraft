@@ -174,6 +174,22 @@
               };
             };
 
+            # The bridge has its own user. From the server it gets only the
+            # log directory, through the group minecraft-logs: the directory
+            # is setgid, so each log file gets that group, and with a mask of
+            # 0077 the server would create them unreadable for it.
+            users.groups.minecraft-logs = { };
+            users.groups.minecraft-slack-bridge = { };
+            users.users.minecraft-slack-bridge = {
+              isSystemUser = true;
+              group = "minecraft-slack-bridge";
+              extraGroups = [ "minecraft-logs" ];
+            };
+            systemd.tmpfiles.rules = [
+              "d /var/lib/minecraft/logs 2750 minecraft minecraft-logs -"
+            ];
+            systemd.services.minecraft-server.serviceConfig.UMask = lib.mkForce "0027";
+
             # Slack bridge for Numcraft
             systemd.services.minecraft-slack-bridge = {
               description = "Minecraft to Slack bidirectional bridge";
@@ -203,13 +219,18 @@
                 USER_MAPPING_FILE = pkgs.writers.writeJSON "user-mapping.json" settings.slackUserMapping;
                 RCON_HOST = "127.0.0.1";
                 RCON_PORT = "25575";
-                MINECRAFT_LOG_PATH = "/var/lib/minecraft/logs/latest.log";
+                MINECRAFT_LOG_PATH = "/run/minecraft-logs/latest.log";
               };
 
               serviceConfig = {
                 Type = "simple";
-                User = "minecraft";
-                Group = "minecraft";
+                User = "minecraft-slack-bridge";
+                Group = "minecraft-slack-bridge";
+
+                # The directory and not the file: the server starts a new
+                # latest.log at each start.
+                BindReadOnlyPaths = [ "/var/lib/minecraft/logs:/run/minecraft-logs" ];
+                InaccessiblePaths = [ "/var/lib/minecraft" ];
 
                 LoadCredential = [
                   "slack-bot-token:${
