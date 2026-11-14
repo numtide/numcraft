@@ -12,6 +12,11 @@ let
     settings = {
       slackChannelId = "C000000000";
       slackUserMapping = { };
+      # the test applies the role by hand, so the option defaults are not set
+      memory = {
+        min = "1G";
+        max = "2G";
+      };
     };
   };
 
@@ -81,6 +86,14 @@ pkgs.testers.runNixOSTest {
     server.wait_for_unit("minecraft-server.service")
     # the RCON listener starts last, after the world is loaded
     server.wait_for_open_port(25575)
+
+    # the heap size reaches the JVM: it is in the environment of the java
+    # process, and the launcher names what it picked up
+    java = server.succeed("pgrep -u minecraft -x java").strip()
+    assert "JDK_JAVA_OPTIONS=-Xms1G -Xmx2G" in server.succeed(f"tr '\\0' '\\n' < /proc/{java}/environ")
+    server.succeed(
+        "journalctl -u minecraft-server.service | grep -F 'Picked up JDK_JAVA_OPTIONS: -Xms1G -Xmx2G'"
+    )
 
     # the Slack bridge has no Slack here, but it polls RCON all the same
     server.wait_until_succeeds(
