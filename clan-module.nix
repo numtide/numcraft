@@ -92,10 +92,14 @@
             # Voice chat UDP port
             networking.firewall.allowedUDPPorts = [ 24454 ];
 
+            # Not openFirewall: it opens rcon.port too. RCON has no transport
+            # encryption and no rate limit, and the bridge reaches it on
+            # loopback.
+            networking.firewall.allowedTCPPorts = [ 25565 ];
+
             services.minecraft-server = {
               enable = true;
               eula = true;
-              openFirewall = true;
               package = minecraft.neoforgeServer;
               jvmOpts = lib.mkForce "";
 

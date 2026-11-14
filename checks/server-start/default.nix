@@ -165,6 +165,8 @@ pkgs.testers.runNixOSTest {
     assert "instantiate" not in xp and "Unknown" not in xp and "Incorrect" not in xp, xp
 
 
+    client.fail("nc -z -w 5 server 25575")
+
     # a stop with the bridge connected must not run into the stop timeout
     server.succeed("timeout 75 systemctl stop minecraft-server.service")
   '';
