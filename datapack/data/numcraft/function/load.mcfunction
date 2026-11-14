@@ -12,4 +12,3 @@ scoreboard objectives add numcraft.claim trigger
 scoreboard objectives add numcraft.home trigger
 scoreboard players set #8 numcraft.var 8
 scoreboard players set #40 numcraft.var 40
-schedule function numcraft:lab/sweep 10s replace
