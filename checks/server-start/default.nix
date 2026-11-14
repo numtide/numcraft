@@ -232,6 +232,16 @@ pkgs.testers.runNixOSTest {
     passes("execute if score @e[tag=second,limit=1] numcraft.plot matches 1")
     passes("execute as @e[tag=second] at @s positioned 104 -60 48 if entity @s[distance=..1]")
 
+    # The sweep removes a hostile mob in the lab, and only there.
+    rcon(lab + " run summon minecraft:creeper 2.5 -60 2.5 {NoAI:1b,PersistenceRequired:1b}")
+    rcon(lab + " run summon minecraft:creeper 4.5 -60 2.5 {NoAI:1b,PersistenceRequired:1b,Tags:[\"numcraft.keep\"]}")
+    rcon(ow + " run summon minecraft:creeper 8.5 100 8.5 {NoAI:1b,NoGravity:1b,PersistenceRequired:1b}")
+    passes(lab + " if entity @e[type=minecraft:creeper,tag=!numcraft.keep,distance=0..]")
+    rcon("function numcraft:lab/sweep")
+    passes(lab + " unless entity @e[type=minecraft:creeper,tag=!numcraft.keep,distance=0..]")
+    passes(lab + " if entity @e[type=minecraft:creeper,tag=numcraft.keep,distance=0..]")
+    passes(ow + " if entity @e[type=minecraft:creeper,distance=0..]")
+
 
     client.fail("nc -z -w 5 server 25575")
 
