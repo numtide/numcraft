@@ -172,7 +172,16 @@
               wants = [
                 "network-online.target"
               ];
-              wantedBy = [ "multi-user.target" ];
+              # The server waits forever for open RCON client threads on
+              # shutdown, and the bridge keeps one open. Without partOf, a
+              # stop with the bridge connected runs into the stop timeout
+              # and SIGKILL. With it and After=, systemd stops the bridge
+              # first.
+              partOf = [ "minecraft-server.service" ];
+              wantedBy = [
+                "multi-user.target"
+                "minecraft-server.service"
+              ];
 
               environment = {
                 SLACK_BOT_TOKEN_FILE = "%d/slack-bot-token";

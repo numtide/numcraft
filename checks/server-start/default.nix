@@ -93,5 +93,8 @@ pkgs.testers.runNixOSTest {
     status = client.succeed("mcstatus server:25565 status")
     print(status)
     assert "${minecraftVersion}" in status, status
+
+    # a stop with the bridge connected must not run into the stop timeout
+    server.succeed("timeout 75 systemctl stop minecraft-server.service")
   '';
 }
