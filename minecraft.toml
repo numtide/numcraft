@@ -202,6 +202,7 @@ client = true
 # Server-only mods
 
 [mods.distant-horizons]
+hold = "3.3.3 stops the server start: NoClassDefFoundError in spark"
 modrinth_id = "uCdwusMi"
 version_id = "B1HnfKO7"
 filename = "DistantHorizons-3.0.3-b-1.21.11-fabric-neoforge.jar"
@@ -233,9 +234,9 @@ server = true
 
 [mods.entityculling]
 modrinth_id = "NNAgCjsB"
-version_id = "w1sp8Uel"
-filename = "entityculling-neoforge-1.11.3-mc1.21.11.jar"
-hash = "sha512-710Zp61x/pNaU8KA+hrTbI778kREtsigMeegi++5K1lpY42s3R53Z476WEla4hrXdkeUukvKgUFc2csQewno2Q=="
+version_id = "DnTSaCcO"
+filename = "entityculling-neoforge-1.12.1-mc1.21.11.jar"
+hash = "sha512-sxJlM90yg/xYxZjPmsq8/kY12gCq5qSKK9bekJ1oQ/Tkkr7UikzejBTH+e25KypjcbiTJQ+w+/zh/dg5trxNGA=="
 client = true
 
 [mods.searchables]
@@ -275,9 +276,9 @@ client = true
 
 [mods.mafglib]
 modrinth_id = "SKI34J7B"
-version_id = "y1WRHsk9"
-filename = "mafglib-0.4.7+mc1.21.11.jar"
-hash = "sha512-6C0M9KT99SCM3h+RxreUuuh+ahjLrH0f1vUvP3b54z50624RX9s4xsGSKnvYo29qabzOAS6FSuDNXNgCk+cJwQ=="
+version_id = "SiCB8wL1"
+filename = "mafglib-0.4.8+mc1.21.11.jar"
+hash = "sha512-S8NtWitkOHF+QE9MnvasuFQmr3xCerSCZWgQ8qyGG+loJDTAzVCbZp56QzdZcU1ZS4yFBc6e9BOOAdI0P3/IcQ=="
 client = true
 
 [mods.forgematica]
