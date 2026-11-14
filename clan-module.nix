@@ -144,7 +144,9 @@
                 network-compression-threshold = 256;
                 online-mode = true;
                 op-permission-level = 4;
-                pause-when-empty-seconds = 60;
+                # Never pause: a paused server loads no chunk, so a command sent
+                # through RCON while no player is online cannot change the world.
+                pause-when-empty-seconds = -1;
                 player-idle-timeout = 0;
                 prevent-proxy-connections = false;
                 pvp = true;
