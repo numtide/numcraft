@@ -15,6 +15,20 @@
           example = "C09R5MZU346";
         };
 
+        memory = {
+          min = lib.mkOption {
+            type = lib.types.strMatching "[1-9][0-9]*[MG]";
+            default = "1G";
+            description = "Start size of the Java heap of the server (-Xms)";
+          };
+
+          max = lib.mkOption {
+            type = lib.types.strMatching "[1-9][0-9]*[MG]";
+            default = "2G";
+            description = "Largest size of the Java heap of the server (-Xmx)";
+          };
+        };
+
         slackUserMapping = lib.mkOption {
           type = lib.types.attrsOf lib.types.str;
           description = "Mapping of Slack user IDs to Minecraft usernames";
@@ -188,6 +202,12 @@
             systemd.tmpfiles.rules = [
               "d /var/lib/minecraft/logs 2750 minecraft minecraft-logs -"
             ];
+            # Not jvmOpts: the unit puts those after the program name, where the
+            # start script hands them to the game, not to the JVM. Without a
+            # heap size the JVM takes a quarter of the memory of the host.
+            systemd.services.minecraft-server.environment.JDK_JAVA_OPTIONS =
+              "-Xms${settings.memory.min} -Xmx${settings.memory.max}";
+
             systemd.services.minecraft-server.serviceConfig.UMask = lib.mkForce "0027";
 
             # Slack bridge for Numcraft
