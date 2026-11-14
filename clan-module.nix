@@ -75,6 +75,12 @@
                 mod: "ln -s ${mod} /var/lib/minecraft/mods"
               ) minecraft.server.modList}
 
+              # A copy, not a link: the server refuses data packs behind a
+              # symbolic link that allowed_symlinks.txt does not list.
+              mkdir -p /var/lib/minecraft/world/datapacks
+              rm -rf /var/lib/minecraft/world/datapacks/numcraft
+              cp -r --no-preserve=mode ${./datapack} /var/lib/minecraft/world/datapacks/numcraft
+
               # Server icon (resized to 64x64)
               ${pkgs.imagemagick}/bin/convert ${./icon.png} -resize 64x64 /var/lib/minecraft/server-icon.png
 

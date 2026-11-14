@@ -94,6 +94,37 @@ pkgs.testers.runNixOSTest {
     print(status)
     assert "${minecraftVersion}" in status, status
 
+    def rcon(command):
+        return server.succeed(f"mcrcon -H 127.0.0.1 -P 25575 -p ${secret} '{command}'")
+
+    def expect(command, text):
+        out = rcon(command)
+        assert text in out, f"{command}: {out}"
+
+    expect("datapack list enabled", "file/numcraft")
+    # the load function ran, and the dimension exists
+    expect("execute in numcraft:lab run forceload query 0 0", "is marked for force loading")
+    expect("function numcraft:tick", "Running function numcraft:tick")
+
+    # a round trip through both portal functions, with an armor stand as the traveller
+    rcon("execute in minecraft:overworld run forceload add 0 0")
+    server.wait_until_succeeds(
+        "mcrcon -H 127.0.0.1 -P 25575 -p ${secret} 'execute in minecraft:overworld if loaded 8 100 8' | grep -F 'Test passed'"
+    )
+    rcon("execute in minecraft:overworld positioned 8 100 8 run function numcraft:portal/set_hub")
+    rcon("execute in minecraft:overworld run summon minecraft:armor_stand 8 100 8 {Tags:[\"traveller\"],NoGravity:1b}")
+    in_lab = "execute as @e[tag=traveller] at @s if dimension numcraft:lab"
+    in_overworld = "execute as @e[tag=traveller] at @s if dimension minecraft:overworld"
+    expect(in_overworld, "Test passed")
+    rcon("execute as @e[tag=traveller] run function numcraft:portal/to_lab")
+    server.wait_until_succeeds(
+        f"mcrcon -H 127.0.0.1 -P 25575 -p ${secret} '{in_lab}' | grep -F 'Test passed'"
+    )
+    rcon("execute as @e[tag=traveller] run function numcraft:portal/to_hub")
+    server.wait_until_succeeds(
+        f"mcrcon -H 127.0.0.1 -P 25575 -p ${secret} '{in_overworld}' | grep -F 'Test passed'"
+    )
+
     # a stop with the bridge connected must not run into the stop timeout
     server.succeed("timeout 75 systemctl stop minecraft-server.service")
   '';
