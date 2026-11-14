@@ -111,6 +111,9 @@ pkgs.testers.runNixOSTest {
             f"mcrcon -H 127.0.0.1 -P 25575 -p ${secret} '{command}' | grep -F 'Test passed'", timeout=60
         )
 
+    # the void biome has no spawn list, so no mob spawns in the lab
+    passes("execute in numcraft:lab if biome 0 -60 0 minecraft:the_void")
+
     # The traveller is an armor stand: the test has no game client. It has
     # armor and hand slots, so it goes through the same save, wipe and restore
     # functions as a player.
