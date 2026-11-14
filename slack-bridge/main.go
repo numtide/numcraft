@@ -79,7 +79,12 @@ type Bridge struct {
 	users     map[string]string
 	// relay shows a line from Slack in the game
 	relay func(name, text string) error
-	state State
+	// command runs a server command over RCON, for the status
+	command func(cmd string) (string, error)
+	logPath string
+	state   State
+	// when each Slack user ran their last command
+	lastCommand map[string]time.Time
 }
 
 // retry waits when Slack rate-limits, so that no line gets lost.
@@ -202,6 +207,9 @@ func (b *Bridge) HandleSlack(ev *slackevents.MessageEvent) error {
 	if ev.BotID != "" || ev.SubType != "" || ev.Channel != b.channelID || ev.Text == "" {
 		return nil
 	}
+	if name, rest, ok := splitCommand(ev.Text); ok {
+		return b.HandleCommand(ev, name, rest)
+	}
 	b.Lock()
 	thread := b.presence.TS
 	b.Unlock()
@@ -295,6 +303,8 @@ func main() {
 		channelID: config.ChannelID,
 		users:     config.Users,
 		relay:     rcon.Tell,
+		command:   rcon.Command,
+		logPath:   config.LogPath,
 	}
 
 	// the path of the binary is in the Nix store, so it names the build

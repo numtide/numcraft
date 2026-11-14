@@ -28,6 +28,18 @@ middle of the day posts a fresh message.
 NOTE: If the message doesn't show up, check that the bot is invited to the
 channel.
 
+## Commands
+
+A message in the channel that starts with one of these is a command. The
+answer goes in the thread of that message.
+
+- `!status`: the players, the version, the tick rate and the uptime of the
+  server.
+- `!help`: the list of the commands.
+
+Each Slack user gets one command in five seconds. A command is not relayed
+to the game.
+
 ## Configuration
 
 The clan module in `clan-module.nix` sets this up. The Go program reads:
