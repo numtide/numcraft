@@ -11,7 +11,7 @@
       self,
       nixpkgs,
       flake-parts,
-      clan-core,
+      ...
     }:
     let
       inherit (nixpkgs) lib;
@@ -35,17 +35,17 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          nixosLib = import (nixpkgs + "/nixos/lib") { };
         in
         lib.optionalAttrs pkgs.stdenv.isLinux {
           server-start = import ./checks/server-start {
-            inherit pkgs nixosLib clan-core self;
+            inherit pkgs self;
           };
         }
       );
 
       ci = lib.genAttrs [ "x86_64-linux" ] (system: {
         inherit (self.packages.${system}) client mrpack slack-bridge;
+        inherit (self.checks.${system}) server-start;
       });
 
       flakeModules.default = flake-parts.lib.importApply ./flake-module.nix { inherit self; };
