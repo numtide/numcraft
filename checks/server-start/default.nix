@@ -153,6 +153,12 @@ pkgs.testers.runNixOSTest {
     rcon(f"{me} run function numcraft:lab/leave")
     passes(f"{me} if items entity @s armor.head minecraft:leather_helmet")
 
+    # an end portal next to a traveller in the lab does not last
+    rcon("execute in numcraft:lab run setblock 2 -58 2 minecraft:end_portal")
+    passes("execute in numcraft:lab if block 2 -58 2 minecraft:end_portal")
+    rcon("execute in numcraft:lab positioned 0 -60 0 run function numcraft:lab/no_portals")
+    passes("execute in numcraft:lab unless block 2 -58 2 minecraft:end_portal")
+
     # the macro lines of a function are parsed only when it runs
     xp = rcon(f"{me} run function numcraft:lab/restore_xp {{levels:3,points:2}}")
     print(xp)

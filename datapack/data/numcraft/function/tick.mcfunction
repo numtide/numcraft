@@ -5,3 +5,4 @@ execute as @a at @s unless score @s numcraft.cooldown matches 1.. if entity @e[t
 # respawn, a teleport, a portal block. And every way in.
 execute as @a[tag=numcraft.in_lab] at @s unless dimension numcraft:lab run function numcraft:lab/leave
 execute as @a[tag=!numcraft.in_lab] at @s if dimension numcraft:lab run function numcraft:lab/enter
+execute as @a[tag=numcraft.in_lab] at @s if dimension numcraft:lab run function numcraft:lab/no_portals
