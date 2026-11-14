@@ -213,6 +213,38 @@
 
                 Restart = "always";
                 RestartSec = "10s";
+
+                CapabilityBoundingSet = "";
+                LockPersonality = true;
+                MemoryDenyWriteExecute = true;
+                NoNewPrivileges = true;
+                PrivateDevices = true;
+                PrivateTmp = true;
+                ProtectClock = true;
+                ProtectControlGroups = true;
+                ProtectHome = true;
+                ProtectHostname = true;
+                ProtectKernelLogs = true;
+                ProtectKernelModules = true;
+                ProtectKernelTunables = true;
+                ProtectProc = "invisible";
+                ProtectSystem = "strict";
+                # AF_UNIX is for name resolution through nscd
+                RestrictAddressFamilies = [
+                  "AF_INET"
+                  "AF_INET6"
+                  "AF_UNIX"
+                ];
+                RestrictNamespaces = true;
+                RestrictRealtime = true;
+                RestrictSUIDSGID = true;
+                SystemCallArchitectures = "native";
+                SystemCallFilter = [
+                  "@system-service"
+                  "~@privileged"
+                ];
+                SystemCallErrorNumber = "EPERM";
+                UMask = "0077";
               };
             };
           };
