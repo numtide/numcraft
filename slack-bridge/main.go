@@ -79,6 +79,7 @@ type Bridge struct {
 	users     map[string]string
 	// relay shows a line from Slack in the game
 	relay func(name, text string) error
+	state State
 }
 
 // retry waits when Slack rate-limits, so that no line gets lost.
@@ -235,13 +236,13 @@ func (b *Bridge) HandleLog(event LogEvent) {
 // poll reconciles the list with the server. A server that does not answer
 // has nobody online.
 func (b *Bridge) poll(rcon *Rcon, interval time.Duration) {
-	reachable := false
 	for {
 		players, err := rcon.Players()
-		if err != nil && reachable {
-			log.Println("poll:", err)
+		if err != nil {
+			b.state.Set("rcon", "unreachable "+err.Error())
+		} else {
+			b.state.Set("rcon", "connected to "+rcon.addr)
 		}
-		reachable = err == nil
 		if err := b.SyncPlayers(players); err != nil {
 			log.Println("poll:", err)
 		}
@@ -250,9 +251,36 @@ func (b *Bridge) poll(rcon *Rcon, interval time.Duration) {
 }
 
 const (
-	pollInterval = 8 * time.Second
-	tailInterval = time.Second
+	pollInterval   = 8 * time.Second
+	tailInterval   = time.Second
+	healthInterval = 15 * time.Minute
 )
+
+// socketState names the state of the Slack socket after an event, or gives
+// nothing for an event that does not change it.
+func socketState(evt socketmode.Event) string {
+	switch evt.Type {
+	case socketmode.EventTypeConnecting:
+		return "connecting"
+	case socketmode.EventTypeConnected, socketmode.EventTypeHello:
+		return "connected"
+	case socketmode.EventTypeDisconnect:
+		return "disconnected on request of Slack"
+	case socketmode.EventTypeInvalidAuth:
+		return "refused: Slack does not accept the tokens"
+	case socketmode.EventTypeConnectionError:
+		if e, ok := evt.Data.(*slack.ConnectionErrorEvent); ok && e.ErrorObj != nil {
+			return "failed " + redact(e.ErrorObj.Error())
+		}
+		return "failed"
+	case socketmode.EventTypeIncomingError:
+		if e, ok := evt.Data.(*slack.IncomingEventError); ok && e.ErrorObj != nil {
+			return "dropped " + redact(e.ErrorObj.Error())
+		}
+		return "dropped"
+	}
+	return ""
+}
 
 func main() {
 	config, err := loadConfig()
@@ -269,8 +297,17 @@ func main() {
 		relay:     rcon.Tell,
 	}
 
+	// the path of the binary is in the Nix store, so it names the build
+	build, _ := os.Executable()
+	log.Printf("start: build %s, channel %s, rcon %s, log %s, %d users", build, config.ChannelID, config.RconAddr, config.LogPath, len(config.Users))
+
 	go bridge.poll(rcon, pollInterval)
-	go tailLog(config.LogPath, tailInterval, bridge.HandleLog)
+	go tailLog(config.LogPath, tailInterval, bridge.HandleLog, func(state string) { bridge.state.Set("log", state) })
+	go bridge.state.report(healthInterval, func() int {
+		bridge.Lock()
+		defer bridge.Unlock()
+		return len(bridge.presence.online())
+	})
 
 	client := socketmode.New(api)
 	go func() {
@@ -279,9 +316,13 @@ func main() {
 			if evt.Request != nil {
 				client.Ack(*evt.Request)
 			}
+			// each retry in an outage starts with "connecting": keep the
+			// failure in the journal one time, not one pair for each retry
+			retrying := bridge.state.Is("slack", "failed")
+			if state := socketState(evt); state != "" && !(retrying && state == "connecting") {
+				bridge.state.Set("slack", state)
+			}
 			switch evt.Type {
-			case socketmode.EventTypeConnectionError:
-				log.Println("socketmode:", evt.Data)
 			case socketmode.EventTypeEventsAPI:
 				event, ok := evt.Data.(slackevents.EventsAPIEvent)
 				if !ok {
