@@ -129,7 +129,7 @@ func TestTailLogRotation(t *testing.T) {
 	}
 
 	events := make(chan LogEvent, 100)
-	go tailLog(path, 10*time.Millisecond, func(e LogEvent) { events <- e })
+	go tailLog(path, 10*time.Millisecond, func(e LogEvent) { events <- e }, func(string) {})
 
 	append := func(content string) {
 		f, err := os.OpenFile(path, os.O_APPEND|os.O_WRONLY, 0o644)
