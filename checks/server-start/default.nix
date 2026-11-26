@@ -265,6 +265,30 @@ pkgs.testers.runNixOSTest {
     passes("execute if score @e[tag=second,limit=1] numcraft.plot matches 1")
     passes("execute as @e[tag=second] at @s positioned 104 -60 48 if entity @s[distance=..1]")
 
+    # A player who changes the name has no score under the new name. The
+    # vault and the plot of the traveller must come back all the same.
+    third = "execute as @e[tag=third]"
+    rcon("execute in minecraft:overworld run summon minecraft:armor_stand 8.5 100 8.5 {Tags:[\"third\"],NoGravity:1b,equipment:{head:{id:\"minecraft:iron_helmet\"}}}")
+    rcon(f"{third} run function numcraft:lab/enter")
+    rcon(f"{third} run scoreboard players set @s numcraft.plot 7")
+    rcon(f"{third} run function numcraft:lab/state_save")
+    passes(f"{third} if entity @s[tag=numcraft.in_lab] unless items entity @s armor.head *")
+    passes(f"{third} if score @s numcraft.id matches 2 if score @s numcraft.plot matches 7")
+    passes(f"{vault} if items block 2 2 0 container.9 minecraft:iron_helmet")
+    rcon("scoreboard players reset @e[tag=third,limit=1]")
+    passes(f"{third} unless score @s numcraft.id matches 0..")
+    rcon(f"{third} run function numcraft:lab/leave")
+    passes(f"{third} unless entity @s[tag=numcraft.in_lab] if items entity @s armor.head minecraft:iron_helmet")
+    passes(f"{third} if score @s numcraft.id matches 2 if score @s numcraft.plot matches 7")
+    passes(f"{vault} unless data block 2 2 0 Items[0]")
+    # the vault of another traveller stays as it is
+    passes(f"{vault} if block 0 1 0 minecraft:barrel")
+
+    # a traveller with the tag and no vault number anywhere keeps everything
+    rcon("execute in minecraft:overworld run summon minecraft:armor_stand 8.5 100 8.5 {Tags:[\"lost\",\"numcraft.in_lab\"],NoGravity:1b,equipment:{head:{id:\"minecraft:iron_helmet\"}}}")
+    rcon("execute as @e[tag=lost] run function numcraft:lab/leave")
+    passes("execute as @e[tag=lost] if entity @s[tag=numcraft.in_lab] if items entity @s armor.head minecraft:iron_helmet")
+
 
     client.fail("nc -z -w 5 server 25575")
 

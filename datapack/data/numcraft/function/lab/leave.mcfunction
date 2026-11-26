@@ -1,4 +1,7 @@
 execute unless entity @s[tag=numcraft.in_lab] run return 1
+function numcraft:lab/state_sync
+# a failed read gives 0, and vault 0 belongs to another traveller
+execute unless score @s numcraft.id matches 0.. run return fail
 execute store result storage numcraft:lab args.x int 1 run scoreboard players get @s numcraft.id
 function numcraft:lab/vault_check with storage numcraft:lab args
 # no vault, no wipe: the traveller keeps the tag, and the next tick tries again
