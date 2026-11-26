@@ -1,3 +1,4 @@
+function numcraft:lab/state_sync
 execute unless score @s numcraft.plot matches 0.. run return fail
 function numcraft:lab/enter
 execute unless entity @s[tag=numcraft.in_lab] run return fail
